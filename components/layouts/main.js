@@ -1,7 +1,6 @@
 import Head from "next/head"
 import NavBar from "../navbar"
-import { Box, Container, Th } from "@chakra-ui/react"
-import { useColorModeValue } from "@chakra-ui/react"
+import { Box, Container } from "@chakra-ui/react"
 
 const Main = ({ children, router }) => {
     return (
