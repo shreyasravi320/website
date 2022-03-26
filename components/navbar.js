@@ -1,8 +1,7 @@
 import NextLink from "next/link"
 import { 
     Container, Box, Link, 
-    Stack, Heading, Flex, 
-    Menu, MenuItem, MenuList, 
+    Stack, Menu, MenuItem, MenuList, 
     IconButton, useColorModeValue, MenuButton 
 } from "@chakra-ui/react"
 import { HamburgerIcon } from "@chakra-ui/icons"
@@ -10,13 +9,13 @@ import ThemeToggle from "./themebutton"
 
 const LinkItem = ({ href, path, children }) => {
     const active = path === href
-
+    const color = useColorModeValue("gray.100", "gray.900")
     return (
         <NextLink href={href}>
             <Link 
                 style={{textDecoration: "none"}} px={4} py={2} 
                 rounded="md" 
-                bg={active ? useColorModeValue("gray.100", "gray.900") : undefined} 
+                bg={active ? color : undefined} 
                 color={useColorModeValue("black", "white")}
                 _hover={{bgColor: useColorModeValue("gray.100", "gray.900")}}
             >

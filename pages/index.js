@@ -1,4 +1,4 @@
-import { Box, Container, Heading, Paragraph, useColorModeValue } from "@chakra-ui/react"
+import { Box, Container, Heading, useColorModeValue } from "@chakra-ui/react"
 import styled from "@emotion/styled"
 import { keyframes } from "@emotion/react"
 import Section from "../components/section"
