@@ -34,7 +34,7 @@ const Page = () => {
                 </Box>
             </Box>
 
-            <Box borderRadius="lg" bg={useColorModeValue("gray.100", "gray.900")} p={3} mt={5} mb={10} align="center">
+            <Box borderRadius="lg" bg={useColorModeValue("gray.100", "gray.900")} p={3} mt={6} mb={10} align="center">
                 Random text here lol
             </Box>
 
