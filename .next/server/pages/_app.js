@@ -5,7 +5,7 @@ exports.id = 888;
 exports.ids = [888];
 exports.modules = {
 
-/***/ 238:
+/***/ 1360:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 // ESM COMPAT FLAG
@@ -19,41 +19,24 @@ __webpack_require__.d(__webpack_exports__, {
 // EXTERNAL MODULE: external "react/jsx-runtime"
 var jsx_runtime_ = __webpack_require__(997);
 // EXTERNAL MODULE: external "react"
-var external_react_ = __webpack_require__(689);
+var external_react_ = __webpack_require__(6689);
 ;// CONCATENATED MODULE: external "@chakra-ui/provider"
 const provider_namespaceObject = require("@chakra-ui/provider");
 ;// CONCATENATED MODULE: external "next/head"
 const head_namespaceObject = require("next/head");
 var head_default = /*#__PURE__*/__webpack_require__.n(head_namespaceObject);
 // EXTERNAL MODULE: ./node_modules/next/link.js
-var next_link = __webpack_require__(664);
+var next_link = __webpack_require__(1664);
 // EXTERNAL MODULE: external "@chakra-ui/react"
-var react_ = __webpack_require__(930);
+var react_ = __webpack_require__(8930);
 ;// CONCATENATED MODULE: external "@chakra-ui/icons"
 const icons_namespaceObject = require("@chakra-ui/icons");
-;// CONCATENATED MODULE: ./components/themebutton.js
-
-
-
-
-
-const ThemeToggle = ()=>{
-    const { toggleColorMode  } = (0,react_.useColorMode)();
-    return(/*#__PURE__*/ jsx_runtime_.jsx(react_.IconButton, {
-        "aria-label": "Toggle theme",
-        colorScheme: "gray",
-        icon: (0,react_.useColorModeValue)(/*#__PURE__*/ jsx_runtime_.jsx(icons_namespaceObject.MoonIcon, {}), /*#__PURE__*/ jsx_runtime_.jsx(icons_namespaceObject.SunIcon, {})),
-        onClick: toggleColorMode
-    }));
-};
-/* harmony default export */ const themebutton = (ThemeToggle);
-
 ;// CONCATENATED MODULE: ./components/navbar.js
 
 
 
 
-
+// import ThemeToggle from "./themebutton"
 const LinkItem = ({ href , path , children  })=>{
     const active = path === href;
     const color = (0,react_.useColorModeValue)("gray.100", "gray.900");
@@ -81,7 +64,8 @@ const NavBar = (props)=>{
         position: "fixed",
         as: "nav",
         w: "100%",
-        bg: "#00000000",
+        // bg={"#00000000"}
+        bg: (0,react_.useColorModeValue)("white", "black"),
         zIndex: 1,
         ...props,
         children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(react_.Container, {
@@ -129,66 +113,63 @@ const NavBar = (props)=>{
                         })
                     ]
                 }),
-                /*#__PURE__*/ (0,jsx_runtime_.jsxs)(react_.Box, {
+                /*#__PURE__*/ jsx_runtime_.jsx(react_.Box, {
                     flex: 1,
                     align: "right",
-                    children: [
-                        /*#__PURE__*/ jsx_runtime_.jsx(themebutton, {}),
-                        /*#__PURE__*/ jsx_runtime_.jsx(react_.Box, {
-                            ml: 2,
-                            display: {
-                                base: "inline-block",
-                                md: "none"
-                            },
-                            children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(react_.Menu, {
-                                children: [
-                                    /*#__PURE__*/ jsx_runtime_.jsx(react_.MenuButton, {
-                                        as: react_.IconButton,
-                                        icon: /*#__PURE__*/ jsx_runtime_.jsx(icons_namespaceObject.HamburgerIcon, {}),
-                                        variant: "outline",
-                                        "aria-label": "Options"
-                                    }),
-                                    /*#__PURE__*/ (0,jsx_runtime_.jsxs)(react_.MenuList, {
-                                        children: [
-                                            /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
-                                                href: "/",
-                                                passHref: true,
-                                                children: /*#__PURE__*/ jsx_runtime_.jsx(react_.MenuItem, {
-                                                    as: react_.Link,
-                                                    style: {
-                                                        textDecoration: "none"
-                                                    },
-                                                    children: "Home"
-                                                })
-                                            }),
-                                            /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
-                                                href: "/projects",
-                                                passHref: true,
-                                                children: /*#__PURE__*/ jsx_runtime_.jsx(react_.MenuItem, {
-                                                    as: react_.Link,
-                                                    style: {
-                                                        textDecoration: "none"
-                                                    },
-                                                    children: "Projects"
-                                                })
-                                            }),
-                                            /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
-                                                href: "/resume",
-                                                passHref: true,
-                                                children: /*#__PURE__*/ jsx_runtime_.jsx(react_.MenuItem, {
-                                                    as: react_.Link,
-                                                    style: {
-                                                        textDecoration: "none"
-                                                    },
-                                                    children: "Resume"
-                                                })
+                    children: /*#__PURE__*/ jsx_runtime_.jsx(react_.Box, {
+                        ml: 2,
+                        display: {
+                            base: "inline-block",
+                            md: "none"
+                        },
+                        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)(react_.Menu, {
+                            children: [
+                                /*#__PURE__*/ jsx_runtime_.jsx(react_.MenuButton, {
+                                    as: react_.IconButton,
+                                    icon: /*#__PURE__*/ jsx_runtime_.jsx(icons_namespaceObject.HamburgerIcon, {}),
+                                    variant: "outline",
+                                    "aria-label": "Options"
+                                }),
+                                /*#__PURE__*/ (0,jsx_runtime_.jsxs)(react_.MenuList, {
+                                    children: [
+                                        /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
+                                            href: "/",
+                                            passHref: true,
+                                            children: /*#__PURE__*/ jsx_runtime_.jsx(react_.MenuItem, {
+                                                as: react_.Link,
+                                                style: {
+                                                    textDecoration: "none"
+                                                },
+                                                children: "Home"
                                             })
-                                        ]
-                                    })
-                                ]
-                            })
+                                        }),
+                                        /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
+                                            href: "/projects",
+                                            passHref: true,
+                                            children: /*#__PURE__*/ jsx_runtime_.jsx(react_.MenuItem, {
+                                                as: react_.Link,
+                                                style: {
+                                                    textDecoration: "none"
+                                                },
+                                                children: "Projects"
+                                            })
+                                        }),
+                                        /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
+                                            href: "/resume",
+                                            passHref: true,
+                                            children: /*#__PURE__*/ jsx_runtime_.jsx(react_.MenuItem, {
+                                                as: react_.Link,
+                                                style: {
+                                                    textDecoration: "none"
+                                                },
+                                                children: "Resume"
+                                            })
+                                        })
+                                    ]
+                                })
+                            ]
                         })
-                    ]
+                    })
                 })
             ]
         })
@@ -231,7 +212,7 @@ const Main = ({ children , router  })=>{
 /* harmony default export */ const main = (Main);
 
 // EXTERNAL MODULE: ./lib/theme.js
-var theme = __webpack_require__(985);
+var theme = __webpack_require__(7985);
 ;// CONCATENATED MODULE: ./pages/_app.js
 
 
@@ -255,7 +236,7 @@ const Website = ({ Component , pageProps , router  })=>{
 
 /***/ }),
 
-/***/ 930:
+/***/ 8930:
 /***/ ((module) => {
 
 module.exports = require("@chakra-ui/react");
@@ -276,56 +257,56 @@ module.exports = require("next/dist/server/denormalize-page-path.js");
 
 /***/ }),
 
-/***/ 14:
+/***/ 4014:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/i18n/normalize-locale-path.js");
 
 /***/ }),
 
-/***/ 524:
+/***/ 8524:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/is-plain-object.js");
 
 /***/ }),
 
-/***/ 20:
+/***/ 8020:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/mitt.js");
 
 /***/ }),
 
-/***/ 964:
+/***/ 4964:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/router-context.js");
 
 /***/ }),
 
-/***/ 565:
+/***/ 9565:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/router/utils/get-asset-path-from-route.js");
 
 /***/ }),
 
-/***/ 365:
+/***/ 4365:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/router/utils/get-middleware-regex.js");
 
 /***/ }),
 
-/***/ 428:
+/***/ 1428:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/router/utils/is-dynamic.js");
 
 /***/ }),
 
-/***/ 292:
+/***/ 1292:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/router/utils/parse-relative-url.js");
@@ -339,35 +320,35 @@ module.exports = require("next/dist/shared/lib/router/utils/querystring.js");
 
 /***/ }),
 
-/***/ 52:
+/***/ 6052:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/router/utils/resolve-rewrites.js");
 
 /***/ }),
 
-/***/ 226:
+/***/ 4226:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/router/utils/route-matcher.js");
 
 /***/ }),
 
-/***/ 422:
+/***/ 5052:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/router/utils/route-regex.js");
 
 /***/ }),
 
-/***/ 232:
+/***/ 9232:
 /***/ ((module) => {
 
 module.exports = require("next/dist/shared/lib/utils.js");
 
 /***/ }),
 
-/***/ 689:
+/***/ 6689:
 /***/ ((module) => {
 
 module.exports = require("react");
@@ -388,7 +369,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [730,664,985], () => (__webpack_exec__(238)));
+var __webpack_exports__ = __webpack_require__.X(0, [730,664,985], () => (__webpack_exec__(1360)));
 module.exports = __webpack_exports__;
 
 })();

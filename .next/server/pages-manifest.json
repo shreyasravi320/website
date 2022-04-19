@@ -3,6 +3,10 @@
   "/_document": "pages/_document.js",
   "/": "pages/index.html",
   "/projects": "pages/projects.html",
+  "/projects/allegro": "pages/projects/allegro.html",
+  "/projects/ion": "pages/projects/ion.html",
+  "/projects/knight": "pages/projects/knight.html",
+  "/projects/slang": "pages/projects/slang.html",
   "/resume": "pages/resume.html",
   "/_error": "pages/_error.js",
   "/404": "pages/404.html"
