@@ -55,7 +55,7 @@ const Projects = () => {
             <Box display={{md:"flex"}} mt={6} ml="10vw">
                 <Box flexGrow={1}>
                     <Section delay={1.5}>
-                        Other projects can be found at my <a href="https://github.com/shreyasravi320" target="_blank" rel="noreferrer" style={{color:"#4455FF"}}>GitHub</a>
+                        Other projects can be found at my <a href="https://github.com/shreyasravi320" target="_blank" rel="noreferrer" style={{color:"#4466FF"}}>GitHub</a>
                     </Section>
                 </Box>
             </Box>
