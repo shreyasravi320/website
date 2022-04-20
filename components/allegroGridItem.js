@@ -2,7 +2,6 @@ import NextLink from 'next/link'
 import { Heading, Box, Text, LinkBox, LinkOverlay, useColorModeValue } from '@chakra-ui/react'
 
 import AllegroSVG from "../pages/imgs/allegro.svg"
-// import AllegroSVG from "../pages/imgs/allegroThumb.svg"
 
 const AllegroGridItem = ({ textColor, children }) => (
     <Box w="100%" textAlign="center">

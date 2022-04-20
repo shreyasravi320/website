@@ -4,7 +4,7 @@ import Section from "../components/section"
 
 const GradientText = styled.h1`
     background-image: linear-gradient(135deg, #03fc88, #0394fc);
-    background-size: 50%;
+    background-size: 18em;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 `

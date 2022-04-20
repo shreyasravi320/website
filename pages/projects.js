@@ -9,7 +9,7 @@ import AllegroGridItem from "../components/allegroGridItem"
 
 const GradientText = styled.h1`
     background-image: linear-gradient(135deg, #ff7c20, #ff4093);
-    background-size: 50%;
+    background-size: 18em;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 `
@@ -28,7 +28,8 @@ const Projects = () => {
             </Box>
 
             <br></br>
-            <SimpleGrid columns={[1, 1, 2]} gap={14} w="56vw" ml="-7vw">
+            {/* <SimpleGrid columns={[1, 1, 2]} gap={6} w="56vw" ml="-7vw"> */}
+            <SimpleGrid columns={[1, 1, 2]} gap={10} minWidth="56vw" marginX="-7vw">
                 <Section delay={0.3}>
                     <SlangGridItem textColor="#ff8877">
                         A compiler for a custom programming language that offers easy to type Python-like syntax and runtime performance on par with C and C++.
@@ -54,7 +55,7 @@ const Projects = () => {
             <Box display={{md:"flex"}} mt={6} ml="10vw">
                 <Box flexGrow={1}>
                     <Section delay={1.5}>
-                        Other projects can be found at my <a href="https://github.com/shreyasravi320" target="_blank" rel="noreferrer" style={{color:"#2299ff"}}>GitHub</a>
+                        Other projects can be found at my <a href="https://github.com/shreyasravi320" target="_blank" rel="noreferrer" style={{color:"#4455FF"}}>GitHub</a>
                     </Section>
                 </Box>
             </Box>
