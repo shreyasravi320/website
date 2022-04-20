@@ -1,10 +1,10 @@
-import { Heading, Container, Box } from '@chakra-ui/react'
+import { Heading, Container, Box, useColorModeValue } from '@chakra-ui/react'
 // import Image from "next/image"
 import styled from '@emotion/styled'
 import Section from '../../components/section'
 // import Latex from 'react-latex'
 
-import SlangSVG from "../imgs/knight.svg"
+import SlangSVG from "../imgs/slang.svg"
 
 // import { chakra, shouldForwardProp } from "@chakra-ui/react"
 // import { motion } from "framer-motion"
@@ -52,7 +52,7 @@ const Slang = () =>
             </Box>
 
             <Section delay={0.3}>
-                <SlangSVG />
+                <SlangSVG fill={useColorModeValue("black", "white")}/>
             </Section>
         </Container>
     )

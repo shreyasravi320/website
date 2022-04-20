@@ -8,7 +8,7 @@ const AllegroGridItem = ({ textColor, children }) => (
         <NextLink href={`/projects/allegro`} scroll={false}>
             <LinkBox cursor="pointer">
 
-                <AllegroSVG/>
+                <AllegroSVG fill={useColorModeValue("black", "white")}/>
 
                 <LinkOverlay href={`/projects/allegro`}>
                     <Heading

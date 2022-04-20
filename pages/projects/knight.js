@@ -1,4 +1,4 @@
-import { Heading, Container, Box, SimpleGrid } from '@chakra-ui/react'
+import { Heading, Container, Box, SimpleGrid, useColorModeValue } from '@chakra-ui/react'
 import Image from "next/image"
 import styled from '@emotion/styled'
 import Section from '../../components/section'
@@ -32,7 +32,7 @@ const KnightTour = () =>
             </Box>
             
             <Section delay={0.3}>
-                <KnightSVG />
+                <KnightSVG fill={useColorModeValue("white", "black")}/>
             </Section>
 
             <Section delay={0.9}>
@@ -57,10 +57,6 @@ const KnightTour = () =>
                 >
                     Solution
                 </Heading>
-                {/* <link
-                    href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css"
-                    rel="stylesheet"
-                /> */}
                 The problem is a more specific version of the generalized problem of finding a <a href="https://en.wikipedia.org/wiki/Hamiltonian_path" target="_blank" rel="noreferrer" style={{color:"#4466FF"}}>Hamiltonian cycle</a> in a graph. 
                 In simple terms, a Hamiltonian cycle is a path in a graph that touches every vertex exactly once and returns to the starting vertex.
                 In general, the <a href="https://en.wikipedia.org/wiki/Hamiltonian_path_problem" target="_blank" rel="noreferrer" style={{color:"#4466FF"}}>Hamiltonian path problem</a> is an <a href="https://en.wikipedia.org/wiki/NP-completeness" target="_blank" rel="noreferrer" style={{color:"#4466FF"}}>NP-complete</a> problem, meaning that it currently cannot be solved in polynomial time.
@@ -106,6 +102,7 @@ const KnightTour = () =>
                         </li>
                     </ol>
 
+                    <br></br>
                     <Latex displayMode={true}>
                         Using these properties, we are able to efficiently solve the KnightTour problem in polynomial time. In particular, the recurrence describing this problem is $$T(n^2) = 4T(n^2/4) + \Theta(1) = \Theta(n^2)$$ 
                     </Latex>

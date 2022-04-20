@@ -8,7 +8,7 @@ const SlangGridItem = ({ textColor, children }) => (
         <NextLink href={`/projects/slang`} scroll={false}>
             <LinkBox cursor="pointer">
 
-                <SlangSVG/>
+                <SlangSVG fill={useColorModeValue("black", "white")}/>
 
                 <LinkOverlay href={`/projects/slang`}>
                     <Heading

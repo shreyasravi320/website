@@ -29,7 +29,7 @@ const Projects = () => {
 
             <br></br>
             {/* <SimpleGrid columns={[1, 1, 2]} gap={6} w="56vw" ml="-7vw"> */}
-            <SimpleGrid columns={[1, 1, 2]} gap={10} minWidth="56vw" marginX="-7vw" paddingLeft="5%" paddingRight="5%">
+            <SimpleGrid columns={[1, 1, 2]} gap={14} minWidth="56vw" marginX="-7vw" paddingLeft="5%" paddingRight="5%">
                 <Section delay={0.3}>
                     <SlangGridItem textColor="#ff8877">
                         A compiler for a custom programming language that offers easy to type Python-like syntax and runtime performance on par with C and C++.

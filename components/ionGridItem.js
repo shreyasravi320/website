@@ -8,7 +8,7 @@ const IonGridItem = ({ textColor, children }) => (
         <NextLink href={`/projects/ion`} scroll={false}>
             <LinkBox cursor="pointer">
 
-                <IonSVG/>
+                <IonSVG fill={useColorModeValue("black", "white")}/>
 
                 <LinkOverlay href={`/projects/ion`}>
                     <Heading

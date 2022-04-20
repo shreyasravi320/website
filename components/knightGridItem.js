@@ -8,7 +8,7 @@ const KnightGridItem = ({ textColor, children }) => (
         <NextLink href={`/projects/knight`} scroll={false}>
             <LinkBox cursor="pointer">
 
-                <KnightSVG/>
+                <KnightSVG fill={useColorModeValue("black", "white")}/>
 
                 <LinkOverlay href={`/projects/knight`}>
                     <Heading

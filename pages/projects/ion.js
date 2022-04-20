@@ -1,4 +1,5 @@
 import { Heading, Container, Box } from '@chakra-ui/react'
+import { useColorModeValue } from '@chakra-ui/react'
 import styled from '@emotion/styled'
 import Section from '../../components/section'
 
@@ -28,7 +29,7 @@ const Ion = () =>
             </Box>
 
             <Section delay={0.3}>
-                <IonSVG />
+                <IonSVG fill={useColorModeValue("black", "white")}/>
             </Section>
         </Container>
     )
