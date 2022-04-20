@@ -1,5 +1,11 @@
 import { Heading, Container, Box } from '@chakra-ui/react'
+// import Image from "next/image"
 import styled from '@emotion/styled'
+import Section from '../../components/section'
+// import Latex from 'react-latex'
+
+import SlangSVG from "../imgs/knight.svg"
+
 // import { chakra, shouldForwardProp } from "@chakra-ui/react"
 // import { motion } from "framer-motion"
 
@@ -44,6 +50,10 @@ const Slang = () =>
                     {/* </Section> */}
                 </Box>
             </Box>
+
+            <Section delay={0.3}>
+                <SlangSVG />
+            </Section>
         </Container>
     )
 }

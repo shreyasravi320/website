@@ -1,7 +1,7 @@
 import NextLink from 'next/link'
 import { Heading, Box, Text, LinkBox, LinkOverlay, useColorModeValue } from '@chakra-ui/react'
 
-import SlangSVG from "../pages/imgs/slangThumb.svg"
+import SlangSVG from "../pages/imgs/slang.svg"
 
 const SlangGridItem = ({ textColor, children }) => (
     <Box w="100%" textAlign="center">
