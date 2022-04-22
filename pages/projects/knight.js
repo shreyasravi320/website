@@ -3,6 +3,7 @@ import Image from "next/image"
 import styled from '@emotion/styled'
 import Section from '../../components/section'
 import Latex from 'react-latex'
+import theme from '../../lib/theme'
 
 import KnightSVG from "../imgs/knight.svg"
 import KnightDiag from "../imgs/knightDiag.png"
@@ -32,7 +33,7 @@ const KnightTour = () =>
             </Box>
             
             <Section delay={0.3}>
-                <KnightSVG fill={useColorModeValue("white", "black")}/>
+                <KnightSVG fill={useColorModeValue("black", "black")}/>
             </Section>
 
             <Section delay={0.9}>
@@ -57,9 +58,9 @@ const KnightTour = () =>
                 >
                     Solution
                 </Heading>
-                The problem is a more specific version of the generalized problem of finding a <a href="https://en.wikipedia.org/wiki/Hamiltonian_path" target="_blank" rel="noreferrer" style={{color:"#4466FF"}}>Hamiltonian cycle</a> in a graph. 
+                The problem is a more specific version of the generalized problem of finding a <a href="https://en.wikipedia.org/wiki/Hamiltonian_path" target="_blank" rel="noreferrer" style={{color: theme.colors.linkBlue, textDecoration: "underline"}}>Hamiltonian cycle</a> in a graph. 
                 In simple terms, a Hamiltonian cycle is a path in a graph that touches every vertex exactly once and returns to the starting vertex.
-                In general, the <a href="https://en.wikipedia.org/wiki/Hamiltonian_path_problem" target="_blank" rel="noreferrer" style={{color:"#4466FF"}}>Hamiltonian path problem</a> is an <a href="https://en.wikipedia.org/wiki/NP-completeness" target="_blank" rel="noreferrer" style={{color:"#4466FF"}}>NP-complete</a> problem, meaning that it currently cannot be solved in polynomial time.
+                In general, the <a href="https://en.wikipedia.org/wiki/Hamiltonian_path_problem" target="_blank" rel="noreferrer" style={{color: theme.colors.linkBlue, textDecoration: "underline"}}>Hamiltonian path problem</a> is an <a href="https://en.wikipedia.org/wiki/NP-completeness" target="_blank" rel="noreferrer" style={{color: theme.colors.linkBlue, textDecoration: "underline"}}>NP-complete</a> problem, meaning that it currently cannot be solved in polynomial time.
             
                 <br></br>
                 <br></br>
@@ -85,7 +86,7 @@ const KnightTour = () =>
                         <li style={{marginTop: "2%"}}>
                             <Latex>
                                 Any $n \times n$ board can be broken up in to some combination of $6 \times 6$, $6 \times 8$, $8 \times 8$, $8 \times 10$, $10 \times 10$, and $10 \times 12$ boards. 
-                            </Latex> A proof is presented <a href="https://github.com/shreyasravi320/KnightTour/blob/main/KnightTour.pdf" target="_blank" rel="noreferrer" style={{color:"#4466FF"}}>here</a> as part of the KnightTour GitHub repo.
+                            </Latex> A proof is presented <a href="https://github.com/shreyasravi320/KnightTour/blob/main/KnightTour.pdf" target="_blank" rel="noreferrer" style={{color: theme.colors.linkBlue, textDecoration: "underline"}}>here</a> as part of the KnightTour GitHub repo.
                         </li>
                         <li style={{marginTop: "2%"}}>
                             The merging process of the four subsections can be done in constant time since we only have to look at the region of 48 squares that allow for a knight to jump from section to section. Since the knight&apos;s movement edges are always the same size (2 squares in 1 direction, 1 square in another perpendicular direction), there are a finite number of vertex pairs that allow for a jump between sections.

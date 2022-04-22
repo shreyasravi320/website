@@ -34,7 +34,7 @@ const NavBar = props => {
             as="nav" w="100%" 
             // bg={"#00000000"}
             bg={useColorModeValue("white", "black")}
-            zIndex={1}
+            zIndex={100}
             {...props}
         >
             <Container

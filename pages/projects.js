@@ -1,6 +1,7 @@
-import { Box, Container, Heading, SimpleGrid } from "@chakra-ui/react"
+import { Box, Container, Heading, SimpleGrid, textDecoration } from "@chakra-ui/react"
 import Section from "../components/section"
 import styled from "@emotion/styled"
+import theme from "../lib/theme"
 
 import KnightGridItem from "../components/knightGridItem"
 import IonGridItem from "../components/ionGridItem"
@@ -55,7 +56,7 @@ const Projects = () => {
             <Box display={{md:"flex"}} mt={6} ml="10vw">
                 <Box flexGrow={1}>
                     <Section delay={1.5}>
-                        Other projects can be found at my <a href="https://github.com/shreyasravi320" target="_blank" rel="noreferrer" style={{color:"#4466FF"}}>GitHub</a>
+                        Other projects can be found at my <a href="https://github.com/shreyasravi320" target="_blank" rel="noreferrer" style={{color: theme.colors.linkBlue, textDecoration: "underline"}}>GitHub</a>
                     </Section>
                 </Box>
             </Box>
