@@ -5,8 +5,8 @@ import theme from '../../lib/theme'
 import Image from "next/image"
 
 import AllegroSVG from "../imgs/allegro.svg"
-import AllegroDiag1 from "../imgs/AllegroDiag1.svg"
-import AllegroDemo1 from "../imgs/AllegroDemo1.gif"
+import AllegroDiag1 from "../imgs/allegroDiag1.svg"
+import AllegroDemo1 from "../imgs/allegroDemo1.gif"
 
 const GradientText = styled.h1`
     background-image: linear-gradient(135deg, #ff7c20, #ff4093);
