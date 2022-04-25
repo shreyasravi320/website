@@ -36,12 +36,12 @@ const KnightTour = () =>
                 <KnightSVG fill={useColorModeValue("black", "white")}/>
             </Section>
 
-            <Section delay={0.9}>
+            <Section delay={1.1}>
                 <Heading
                     as="h3"
                     variant="section-title"
                 >
-                    Problem
+                    Challenge
                 </Heading>
                 <link
                     href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css"
@@ -51,14 +51,18 @@ const KnightTour = () =>
                     On an arbitrary $n \times n$ chessboard, find a path that a knight can take to visit every square exactly once and return to the starting square.
                 </Latex>
             </Section>
-            <Section delay={1.5}>
+            <Section delay={1.9}>
                 <Heading
                     as="h3"
                     variant="section-title"
                 >
                     Solution
                 </Heading>
-                The problem is a more specific version of the generalized problem of finding a <a href="https://en.wikipedia.org/wiki/Hamiltonian_path" target="_blank" rel="noreferrer" style={{color: theme.colors.linkBlue, textDecoration: "underline"}}>Hamiltonian cycle</a> in a graph. 
+                KnightTour is a solver for the closed <a href="https://en.wikipedia.org/wiki/Knight%27s_tour" target="_blank" rel="noreferrer" style={{color: theme.colors.linkBlue, textDecoration: "underline"}}>knight&apos;s tour</a> problem: finding a path for the knight to touch every square on a chessboard exactly once and return back to start. 
+
+                <br></br>
+                <br></br>
+                The knight&apos;s tour problem is a more specific version of the generalized problem of finding a <a href="https://en.wikipedia.org/wiki/Hamiltonian_path" target="_blank" rel="noreferrer" style={{color: theme.colors.linkBlue, textDecoration: "underline"}}>Hamiltonian cycle</a> in a graph. 
                 In simple terms, a Hamiltonian cycle is a path in a graph that touches every vertex exactly once and returns to the starting vertex.
                 In general, the <a href="https://en.wikipedia.org/wiki/Hamiltonian_path_problem" target="_blank" rel="noreferrer" style={{color: theme.colors.linkBlue, textDecoration: "underline"}}>Hamiltonian path problem</a> is an <a href="https://en.wikipedia.org/wiki/NP-completeness" target="_blank" rel="noreferrer" style={{color: theme.colors.linkBlue, textDecoration: "underline"}}>NP-complete</a> problem, meaning that it currently cannot be solved in polynomial time.
             
@@ -70,7 +74,7 @@ const KnightTour = () =>
                 
                 <br></br>
                 <br></br>
-                <Section delay={2.1}>
+                <Section delay={2.7}>
                     <SimpleGrid columns={[1,1,1]} spacing={0} minWidth="56vw" marginX="-7vw" paddingLeft="5%" paddingRight="5%">
                         <Image src={KnightDiag} layout="responsive"/>
                     </SimpleGrid>

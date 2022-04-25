@@ -1,34 +1,15 @@
-import { Heading, Container, Box, useColorModeValue } from '@chakra-ui/react'
-// import Image from "next/image"
+import { Heading, Container, Box } from '@chakra-ui/react'
+import { useColorModeValue } from '@chakra-ui/react'
 import styled from '@emotion/styled'
 import Section from '../../components/section'
-// import Latex from 'react-latex'
+// import theme from '../../lib/theme'
+// import Image from "next/image"
 
 import SlangSVG from "../imgs/slang.svg"
 
-// import { chakra, shouldForwardProp } from "@chakra-ui/react"
-// import { motion } from "framer-motion"
-
-// const MotionDiv = chakra(motion.div, {
-//     shouldForwardProp: prop => {
-//         return shouldForwardProp(prop) || prop === "transition"
-//     }
-// })
-
-// const Section = ({ children, delay=0 }) => (
-//     <MotionDiv
-//         initial={{x: -20, opacity: 0}}
-//         animate={{x: 0, opacity: 1}}
-//         transition={{duration: 0.8, delay}}
-//         mb={6}
-//     >
-//         {children}
-//     </MotionDiv>
-// )
-
 const GradientText = styled.h1`
     background-image: linear-gradient(135deg, #ff7c20, #ff4093);
-    background-size: 50%;
+    background-size: 10em;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 `
@@ -39,21 +20,61 @@ const Slang = () =>
         <Container>
             <Box display={{md:"flex"}} mt={6}>
                 <Box flexGrow={1}>
-                    {/* <Section delay={0.3}> */}
-                        <GradientText>
-                            <Heading 
-                                variant="page-title"
-                            >
-                                Slang
-                            </Heading>
-                        </GradientText>
-                    {/* </Section> */}
+                    <GradientText>
+                        <Heading 
+                            variant="page-title"
+                        >
+                            Slang
+                        </Heading>
+                    </GradientText>
                 </Box>
             </Box>
 
             <Section delay={0.3}>
                 <SlangSVG fill={useColorModeValue("black", "white")}/>
             </Section>
+
+            <Section delay={1.1}>
+                <Heading
+                    as="h3"
+                    variant="section-title"
+                >
+                    Challenge
+                </Heading>
+                Create a programming language that has easy to understand Python-like syntax as well as execution speed on par with C and C++.
+            </Section>
+            <Section delay={1.9}>
+            <Heading
+                    as="h3"
+                    variant="section-title"
+                >
+                    Solution
+                </Heading>
+                Slang is a compiled programming language in development that combines the simplicity of writing Python code and the high exeuction speed of C and C++.
+                
+                <br></br>
+                <br></br>
+                <div style={{paddingLeft: "10%", paddingRight: "10%"}}>
+                    <code>main(argc: int, argv: *str): int &#x7b;</code>
+                    <div style={{paddingLeft: "10%", paddingRight: "10%"}}>
+                        <code>fib1: int = 0</code><br></br>
+                        <code>fib2: int = 1</code><br></br>
+                        <code>@ i = 0, i &lt; 10, i++ &#x7b;</code><br></br>
+
+                        <div style={{paddingLeft: "10%", paddingRight: "10%"}}>
+                            <code>print fib1</code><br></br>
+                            <code>tmp = fib2</code><br></br>
+                            <code>fib2 += fib1</code><br></br>
+                            <code>fib1 = fib2</code><br></br>
+                        </div>
+
+                        <code>&#x7d;</code>
+                    </div>
+
+                    <code>&#x7d;</code>
+                </div>
+                <figure style={{textAlign: "center"}}><i><small>Printing the first 10 Fibonacci numbers in Slang</small></i></figure>
+            </Section>  
         </Container>
     )
 }

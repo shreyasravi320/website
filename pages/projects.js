@@ -41,12 +41,12 @@ const Projects = () => {
                         A solver that finds a cyclical path a knight can take on an arbitrarily-sized chessboard such that each square is touched exactly once.
                     </KnightGridItem>
                 </Section>
-                <Section delay={0.9}>
+                <Section delay={1.1}>
                     <IonGridItem textColor="#ff6c69">
                         A web-hosted chess engine that can find the optimal move in any given position in under 1.5 seconds by looking at least 12 moves in the future.
                     </IonGridItem>
                 </Section>
-                <Section delay={0.9}>
+                <Section delay={1.1}>
                     <AllegroGridItem textColor="#ff6181">
                         A 3D animation software that creates motion graphics with only a sentence as a given input, using natural language processing and machine-learning models. 
                     </AllegroGridItem>
@@ -55,7 +55,7 @@ const Projects = () => {
 
             <Box display={{md:"flex"}} mt={6} ml="10vw">
                 <Box flexGrow={1}>
-                    <Section delay={1.5}>
+                    <Section delay={1.9}>
                         Other projects can be found at my <a href="https://github.com/shreyasravi320" target="_blank" rel="noreferrer" style={{color: theme.colors.linkBlue, textDecoration: "underline"}}>GitHub</a>
                     </Section>
                 </Box>
