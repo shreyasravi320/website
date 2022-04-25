@@ -2,6 +2,7 @@ import { Box, Container, Heading, SimpleGrid } from "@chakra-ui/react"
 import Section from "../components/section"
 import styled from "@emotion/styled"
 import theme from "../lib/theme"
+import { useEffect } from 'react'
 
 import KnightGridItem from "../components/knightGridItem"
 import IonGridItem from "../components/ionGridItem"
@@ -16,6 +17,10 @@ const GradientText = styled.h1`
 `
 
 const Projects = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    })
+
     return (
         <Container>
             <Box display={{md:"flex"}} mt={6}>

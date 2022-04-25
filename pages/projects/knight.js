@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 import Section from '../../components/section'
 import Latex from 'react-latex'
 import theme from '../../lib/theme'
+import { useEffect } from 'react'
 
 import KnightSVG from "../imgs/knight.svg"
 import KnightDiag from "../imgs/knightDiag.png"
@@ -18,6 +19,10 @@ const GradientText = styled.h1`
 
 const KnightTour = () =>
 {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    })
+
     return (
         <Container>
             <Box display={{md:"flex"}} mt={6}>

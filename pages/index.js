@@ -2,7 +2,7 @@ import { Box, Container, Heading, useColorModeValue } from "@chakra-ui/react"
 import styled from "@emotion/styled"
 import { keyframes } from "@emotion/react"
 import Section from "../components/section"
-// import Typist from "react-typist"
+import { useEffect } from 'react'
 
 const gradient = keyframes`
 from {
@@ -32,6 +32,10 @@ const AnimatedGradientText = styled.h1`
 // `
 
 const Page = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    })
+
     return (
         <Container>
 

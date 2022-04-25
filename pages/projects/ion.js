@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 import Section from '../../components/section'
 import theme from '../../lib/theme'
 import Image from "next/image"
+import { useEffect } from 'react'
 
 import IonSVG from "../imgs/ion.svg"
 import IonDemo1 from "../imgs/ionDemo1.gif"
@@ -18,6 +19,10 @@ const GradientText = styled.h1`
 
 const Ion = () =>
 {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    })
+
     return (
         <Container>
             <Box display={{md:"flex"}} mt={6}>

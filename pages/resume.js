@@ -1,6 +1,7 @@
 import { Box, Container, Heading, useColorModeValue } from "@chakra-ui/react"
 import styled from "@emotion/styled"
 import Section from "../components/section"
+import { useEffect } from 'react'
 
 const GradientText = styled.h1`
     background-image: linear-gradient(135deg, #03fc88, #0394fc);
@@ -10,6 +11,10 @@ const GradientText = styled.h1`
 `
 
 const Resume = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    })
+
     return (
         <Container>
             <Box display={{md:"flex"}} mt={6}>

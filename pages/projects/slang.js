@@ -4,6 +4,7 @@ import styled from '@emotion/styled'
 import Section from '../../components/section'
 // import theme from '../../lib/theme'
 // import Image from "next/image"
+import { useEffect } from 'react'
 
 import SlangSVG from "../imgs/slang.svg"
 
@@ -16,6 +17,10 @@ const GradientText = styled.h1`
 
 const Slang = () =>
 {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    })
+
     return (
         <Container>
             <Box display={{md:"flex"}} mt={6}>
