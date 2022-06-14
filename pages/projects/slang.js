@@ -60,14 +60,15 @@ const Slang = () =>
                 <br></br>
                 <br></br>
                 <div style={{paddingLeft: "10%", paddingRight: "10%"}}>
-                    <code>main(argc: int, argv: *str): int &#x7b;</code>
+                    {/* <code>main(argc: int, argv: *str): int &#x7b;</code> */}
+                    <code>main &#x7b;</code>
                     <div style={{paddingLeft: "10%", paddingRight: "10%"}}>
-                        <code>fib1: int = 0</code><br></br>
-                        <code>fib2: int = 1</code><br></br>
+                        <code>fib1:</code> <code>int</code> <code>=</code> <code>0</code><br></br>
+                        <code>fib2:</code> <code>int</code> <code>=</code> <code>1</code><br></br>
                         <code>@ i = 0, i &lt; 10, i++ &#x7b;</code><br></br>
 
                         <div style={{paddingLeft: "10%", paddingRight: "10%"}}>
-                            <code>print fib1</code><br></br>
+                            <code>print</code> <code>fib1</code><br></br>
                             <code>tmp = fib2</code><br></br>
                             <code>fib2 += fib1</code><br></br>
                             <code>fib1 = fib2</code><br></br>
