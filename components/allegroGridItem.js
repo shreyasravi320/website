@@ -12,15 +12,15 @@ const AllegroGridItem = ({ textColor, children }) => (
 
                 <LinkOverlay href={`/projects/allegro`}>
                     <Heading
-                        as="h3" 
-                        variant="section-title" 
+                        as="h3"
+                        variant="section-title"
                         textColor={textColor}
                         textDecorationColor={useColorModeValue("gray.200", "gray.800")}
                     >
                         Allegro
                     </Heading>
                 </LinkOverlay>
-                <Text fontSize={14}>{children}</Text>
+                <Text fontSize={"1.2em"}>{children}</Text>
             </LinkBox>
         </NextLink>
     </Box>

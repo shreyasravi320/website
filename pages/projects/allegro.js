@@ -23,11 +23,11 @@ const Allegro = () =>
     })
 
     return (
-        <Container>
+        <Container maxW="container.sm">
             <Box display={{md:"flex"}} mt={6}>
                 <Box flexGrow={1}>
                     <GradientText>
-                        <Heading 
+                        <Heading
                             variant="page-title"
                         >
                             Allegro
@@ -66,14 +66,14 @@ const Allegro = () =>
 
                 <AllegroDiag1 fill={useColorModeValue("black", "white")}/>
 
-                From there, I created a machine learning model to categorize each of the words into an object, color, position, etc. 
+                From there, I created a machine learning model to categorize each of the words into an object, color, position, etc.
                 The model uses similarites between words that are hardcoded into Allegro to determine the correct category to sort each word in the given sentence.
-            
+
                 <br></br>
                 <br></br>
-                The last step is to render the words into a 3D animation. 
+                The last step is to render the words into a 3D animation.
                 Based on the parsed data, Allegro&apos;s custom graphics engine determines the position, size, color, and orientation of each object and places it in the viewport.
-                Animations are procedurally generated using a mix of polynomial functions, wave simulations, and bezier curves. 
+                Animations are procedurally generated using a mix of polynomial functions, wave simulations, and bezier curves.
 
                 <br></br>
                 <br></br>

@@ -22,11 +22,11 @@ const Slang = () =>
     })
 
     return (
-        <Container>
+        <Container maxW="container.sm">
             <Box display={{md:"flex"}} mt={6}>
                 <Box flexGrow={1}>
                     <GradientText>
-                        <Heading 
+                        <Heading
                             variant="page-title"
                         >
                             Slang
@@ -55,8 +55,8 @@ const Slang = () =>
                 >
                     Solution
                 </Heading>
-                Slang is a compiled programming language in development that combines the simplicity of writing Python code and the high exeuction speed of C and C++.
-                
+                Slang is a compiled programming language in development that combines the simplicity of writing Python code and the execution efficiency of C and C++.
+
                 <br></br>
                 <br></br>
                 <div style={{paddingLeft: "10%", paddingRight: "10%"}}>
@@ -80,7 +80,7 @@ const Slang = () =>
                     <code>&#x7d;</code>
                 </div>
                 <figure style={{textAlign: "center"}}><i><small>Printing the first 10 Fibonacci numbers in Slang</small></i></figure>
-            </Section>  
+            </Section>
         </Container>
     )
 }

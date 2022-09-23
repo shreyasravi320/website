@@ -86,7 +86,6 @@ const Resume = () => {
                             <br></br>
                             Experimented with ReactJS and Firebase to create an online multiplayer version of the game.
                     </li>
-                    <br></br>
                 </ul>
             </Section>
             <Section delay={1.5}>

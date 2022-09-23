@@ -12,15 +12,15 @@ const IonGridItem = ({ textColor, children }) => (
 
                 <LinkOverlay href={`/projects/ion`}>
                     <Heading
-                        as="h3" 
-                        variant="section-title" 
+                        as="h3"
+                        variant="section-title"
                         textColor={textColor}
                         textDecorationColor={useColorModeValue("gray.200", "gray.800")}
                     >
                         Ion
                     </Heading>
                 </LinkOverlay>
-                <Text fontSize={14}>{children}</Text>
+                <Text fontSize={"1.2em"}>{children}</Text>
             </LinkBox>
         </NextLink>
     </Box>
