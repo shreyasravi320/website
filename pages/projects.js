@@ -22,7 +22,7 @@ const Projects = () => {
     })
 
     return (
-        <Container>
+        <Container maxW="container.sm">
             <Box display={{md:"flex"}} mt={6}>
                 <Box flexGrow={1}>
                     <GradientText>
@@ -35,7 +35,7 @@ const Projects = () => {
 
             <br></br>
             {/* <SimpleGrid columns={[1, 1, 2]} gap={6} w="56vw" ml="-7vw"> */}
-            <SimpleGrid columns={[1, 1, 2]} gap={14} minWidth="56vw" marginX="-7vw" paddingLeft="5%" paddingRight="5%">
+            <SimpleGrid columns={[1, 1, 2]} gap={14} minWidth="56vw" marginX="-14vw" paddingLeft="5%" paddingRight="5%">
                 <Section delay={0.3}>
                     <SlangGridItem textColor="#ff8877">
                         A compiler for a custom programming language that offers easy to type Python-like syntax and runtime performance on par with C and C++.
@@ -53,12 +53,12 @@ const Projects = () => {
                 </Section>
                 <Section delay={1.1}>
                     <AllegroGridItem textColor="#ff6181">
-                        A 3D animation software that creates motion graphics with only a sentence as a given input, using natural language processing and machine-learning models. 
+                        A 3D animation software that creates motion graphics with only a sentence as a given input, using natural language processing and machine-learning models.
                     </AllegroGridItem>
                 </Section>
             </SimpleGrid>
 
-            <Box display={{md:"flex"}} mt={6} ml="10vw">
+            <Box display={{md:"flex"}} mt={6} ml="6.5vw">
                 <Box flexGrow={1}>
                     <Section delay={1.9}>
                         Other projects can be found at my <a href="https://github.com/shreyasravi320" target="_blank" rel="noreferrer" style={{color: theme.colors.linkBlue, textDecoration: "underline"}}>GitHub</a>

@@ -37,8 +37,7 @@ const Page = () => {
     })
 
     return (
-        <Container>
-
+        <Container maxW="container.sm">
             <Box display={{md:"flex"}} mt={6} align="left">
                 <Box flexGrow={1}>
                         <Heading as="h2" variant="page-title">
@@ -58,9 +57,9 @@ const Page = () => {
             </Box>
 
             <Section delay={0.3}>
-                <Heading 
-                    as="h3" 
-                    variant="section-title" 
+                <Heading
+                    as="h3"
+                    variant="section-title"
                     textDecorationColor={useColorModeValue("gray.200", "gray.800")}
                 >
                     About Me
