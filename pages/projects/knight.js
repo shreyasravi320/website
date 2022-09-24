@@ -1,4 +1,4 @@
-import { Heading, Container, Box, SimpleGrid, useColorModeValue } from '@chakra-ui/react'
+import { Heading, Container, Box, useColorModeValue } from '@chakra-ui/react'
 import Image from "next/image"
 import styled from '@emotion/styled'
 import Section from '../../components/section'
