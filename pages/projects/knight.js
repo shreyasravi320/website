@@ -12,7 +12,7 @@ import KnightDiag2 from "../imgs/knightDiag2.png"
 
 const GradientText = styled.h1`
     background-image: linear-gradient(135deg, #ff7c20, #ff4093);
-    background-size: 24em;
+    background-size: 55%;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 `
@@ -24,7 +24,7 @@ const KnightTour = () =>
     })
 
     return (
-        <Container maxW="container.sm">
+        <Container maxW="container.md">
             <Box display={{md:"flex"}} mt={6}>
                 <Box flexGrow={1}>
                     <GradientText>
@@ -80,9 +80,7 @@ const KnightTour = () =>
                 <br></br>
                 <br></br>
                 <Section delay={2.7}>
-                    <SimpleGrid columns={[1,1,1]} spacing={0} w="100ch" ml="-17ch">
-                        <Image src={KnightDiag} layout="responsive"/>
-                    </SimpleGrid>
+                    <Image src={KnightDiag} layout="responsive"/>
                     <figure style={{textAlign: "center"}}><i><small>KnightTour on a 12 x 12 board by generating four 6 x 6 tours and merging them</small></i></figure>
 
                     <br></br>
@@ -101,9 +99,7 @@ const KnightTour = () =>
                             The merging process of the four subsections can be done in constant time since we only have to look at the region of 48 squares that allow for a knight to jump from section to section. Since the knight&apos;s movement edges are always the same size (2 squares in 1 direction, 1 square in another perpendicular direction), there are a finite number of vertex pairs that allow for a jump between sections.
                             <br></br>
                             <br></br>
-                            <SimpleGrid columns={[1,1,1]} w="50ch" ml="2ch">
-                                <Image src={KnightDiag2} layout="responsive"/>
-                            </SimpleGrid>
+                            <Image src={KnightDiag2} layout="responsive"/>
                         </li>
                         <li style={{marginTop: "2%"}}>
                             <Latex>

@@ -37,7 +37,7 @@ const Page = () => {
     })
 
     return (
-        <Container maxW="container.sm">
+        <Container maxW="container.lg">
             <Box display={{md:"flex"}} mt={6} align="left">
                 <Box flexGrow={1}>
                         <Heading as="h2" variant="page-title">

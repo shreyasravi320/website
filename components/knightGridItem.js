@@ -20,7 +20,7 @@ const KnightGridItem = ({ textColor, children }) => (
                         KnightTour
                     </Heading>
                 </LinkOverlay>
-                <Text fontSize={"1.2em"}>{children}</Text>
+                <Text fontSize={14}>{children}</Text>
             </LinkBox>
         </NextLink>
     </Box>

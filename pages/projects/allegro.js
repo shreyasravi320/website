@@ -11,7 +11,7 @@ import AllegroDemo1 from "../imgs/allegroDemo1.gif"
 
 const GradientText = styled.h1`
     background-image: linear-gradient(135deg, #ff7c20, #ff4093);
-    background-size: 50%;
+    background-size: 40%;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 `
@@ -23,7 +23,7 @@ const Allegro = () =>
     })
 
     return (
-        <Container maxW="container.sm">
+        <Container maxW="container.md">
             <Box display={{md:"flex"}} mt={6}>
                 <Box flexGrow={1}>
                     <GradientText>

@@ -10,7 +10,7 @@ import SlangSVG from "../imgs/slang.svg"
 
 const GradientText = styled.h1`
     background-image: linear-gradient(135deg, #ff7c20, #ff4093);
-    background-size: 10em;
+    background-size: 30%;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 `
@@ -22,7 +22,7 @@ const Slang = () =>
     })
 
     return (
-        <Container maxW="container.sm">
+        <Container maxW="container.md">
             <Box display={{md:"flex"}} mt={6}>
                 <Box flexGrow={1}>
                     <GradientText>
