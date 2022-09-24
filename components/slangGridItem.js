@@ -4,7 +4,7 @@ import { Heading, Box, Text, LinkBox, LinkOverlay, useColorModeValue } from '@ch
 import SlangSVG from "../pages/imgs/slang.svg"
 
 const SlangGridItem = ({ textColor, children }) => (
-    <Box w="100%" textAlign="center">
+    <Box textAlign="center">
         <NextLink href={`/projects/slang`} scroll={false}>
             <LinkBox cursor="pointer">
 

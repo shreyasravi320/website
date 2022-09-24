@@ -22,7 +22,7 @@ const Projects = () => {
     })
 
     return (
-        <Container minW="container.lg">
+        <Container maxW="container.lg">
             <Box display={{md:"flex"}} mt={6}>
                 <Box flexGrow={1}>
                     <GradientText>
