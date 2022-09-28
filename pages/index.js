@@ -4,6 +4,8 @@ import { keyframes } from "@emotion/react"
 import Section from "../components/section"
 import { useEffect } from 'react'
 
+import Face1SVG from "./imgs/face1.svg"
+
 const gradient = keyframes`
 from {
     -webkit-filter: hue-rotate(0deg);
@@ -50,6 +52,7 @@ const Page = () => {
             </Section>
 
             <Section delay={1.5}>
+                <Face1SVG fill={useColorModeValue("black", "white")}/>
                 <Heading
                     as="h3"
                     variant="section-title"
