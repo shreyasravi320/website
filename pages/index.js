@@ -23,17 +23,16 @@ const AnimatedGradientText = styled.h1`
 `
 
 const mounted = false;
-const text = <div>Hi, I&apos;m Shreyas</div>;
+const text = <Typist startDelay={1000} avgTypingDelay={120} cursor={{hideWhenDone: true, hideWhenDoneDelay: 2400, blink: true}}>Hi, <Typist.Delay ms={250}/> I&apos;m <Typist.Delay ms={50}/> Shreyas</Typist>;
 
 const Page = () => {
 
     useEffect(() => {
-        text = <div>Hi, I&apos;m Shreyas</div>;
         window.scrollTo(0, 0)
-    })
+    });
 
     useEffect(() => {
-        text = (!mounted ? (<Typist startDelay={1000} avgTypingDelay={120} cursor={{hideWhenDone: true, hideWhenDoneDelay: 2400, blink: true}}>Hi, <Typist.Delay ms={250}/> I&apos;m <Typist.Delay ms={50}/> Shreyas</Typist>) : (<div>Hi, I&apos;m Shreyas</div>));
+        text = <div>Hi, I&apos;m Shreyas</div>;
         mounted = true;
     }, []);
 
