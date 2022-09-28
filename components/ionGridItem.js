@@ -20,7 +20,7 @@ const IonGridItem = ({ textColor, children }) => (
                         Ion
                     </Heading>
                 </LinkOverlay>
-                <Text fontSize={14}>{children}</Text>
+                <Text>{children}</Text>
             </LinkBox>
         </NextLink>
     </Box>

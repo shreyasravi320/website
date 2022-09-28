@@ -36,14 +36,14 @@ const Projects = () => {
 
             <SimpleGrid columns={[1, 1, 2]} gap={"5vw"}>
                 <Section delay={0.3}>
-                    <SlangGridItem textColor="#ff8877">
-                        A compiler for a custom programming language that offers easy to type Python-like syntax and runtime performance on par with C and C++.
-                    </SlangGridItem>
-                </Section>
-                <Section delay={0.3}>
                     <KnightGridItem textColor="#ff7878">
                         A solver that finds a cyclical path a knight can take on an arbitrarily-sized chessboard such that each square is touched exactly once.
                     </KnightGridItem>
+                </Section>
+                <Section delay={0.3}>
+                    <SlangGridItem textColor="#ff8877">
+                        A compiler for a custom programming language that offers easy to type Python-like syntax and runtime performance on par with C and C++.
+                    </SlangGridItem>
                 </Section>
                 <Section delay={1.1}>
                     <IonGridItem textColor="#ff6c69">

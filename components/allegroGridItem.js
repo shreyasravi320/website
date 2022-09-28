@@ -20,7 +20,7 @@ const AllegroGridItem = ({ textColor, children }) => (
                         Allegro
                     </Heading>
                 </LinkOverlay>
-                <Text fontSize={14}>{children}</Text>
+                <Text>{children}</Text>
             </LinkBox>
         </NextLink>
     </Box>

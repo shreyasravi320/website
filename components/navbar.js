@@ -1,8 +1,8 @@
 import NextLink from "next/link"
-import { 
-    Container, Box, Link, 
-    Stack, Menu, MenuItem, MenuList, 
-    IconButton, useColorModeValue, MenuButton 
+import {
+    Container, Box, Link,
+    Stack, Menu, MenuItem, MenuList,
+    IconButton, useColorModeValue, MenuButton
 } from "@chakra-ui/react"
 import { HamburgerIcon } from "@chakra-ui/icons"
 import ThemeToggle from "./themebutton"
@@ -12,10 +12,10 @@ const LinkItem = ({ href, path, children }) => {
     const color = useColorModeValue("gray.100", "gray.900")
     return (
         <NextLink href={href}>
-            <Link 
-                style={{textDecoration: "none"}} px={4} py={2} 
-                rounded="md" 
-                bg={active ? color : undefined} 
+            <Link
+                style={{textDecoration: "none"}} px={4} py={2}
+                rounded="md"
+                bg={active ? color : undefined}
                 color={useColorModeValue("black", "white")}
                 _hover={{bgColor: useColorModeValue("gray.100", "gray.900")}}
             >
@@ -29,9 +29,9 @@ const NavBar = props => {
     const { path } = props
 
     return (
-        <Box 
-            position="fixed" 
-            as="nav" w="100%" 
+        <Box
+            position="fixed"
+            as="nav" w="100%"
             // bg={"#00000000"}
             bg={useColorModeValue("white", "black")}
             zIndex={100}
@@ -52,6 +52,7 @@ const NavBar = props => {
                     alignItems="center"
                     flexGrow={1}
                     mt={{base: 4, nmd: 0}}
+                    fontSize="1.2em"
                 >
                     <LinkItem href="/" path={path}>
                         Home
@@ -68,10 +69,10 @@ const NavBar = props => {
                     <ThemeToggle/>
                     <Box ml={2} display={{base: "inline-block", md: "none"}}>
                         <Menu>
-                            <MenuButton 
-                                as={IconButton} 
-                                icon={<HamburgerIcon/>} 
-                                variant="outline" 
+                            <MenuButton
+                                as={IconButton}
+                                icon={<HamburgerIcon/>}
+                                variant="outline"
                                 aria-label="Options"
                             />
                             <MenuList>
