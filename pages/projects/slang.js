@@ -15,11 +15,17 @@ const GradientText = styled.h1`
     -webkit-text-fill-color: transparent;
 `
 
+const mounted = false;
+
 const Slang = () =>
 {
     useEffect(() => {
         window.scrollTo(0, 0)
-    })
+    });
+
+    useEffect(() => {
+        mounted = true;
+    }, []);
 
     return (
         <Container maxW="container.md">
@@ -35,11 +41,11 @@ const Slang = () =>
                 </Box>
             </Box>
 
-            <Section delay={0.3}>
+            <Section delay={(mounted ? 0 : 0.3)} time={(mounted ? 0 : 0.8)}>
                 <SlangSVG fill={useColorModeValue("black", "white")}/>
             </Section>
 
-            <Section delay={1.1}>
+            <Section delay={(mounted ? 0 : 1.1)} time={(mounted ? 0 : 0.8)}>
                 <Heading
                     as="h3"
                     variant="section-title"
@@ -48,7 +54,7 @@ const Slang = () =>
                 </Heading>
                 Create a programming language that has easy to understand Python-like syntax as well as execution speed on par with C and C++.
             </Section>
-            <Section delay={1.9}>
+            <Section delay={(mounted ? 0 : 1.9)} time={(mounted ? 0 : 0.8)}>
             <Heading
                     as="h3"
                     variant="section-title"

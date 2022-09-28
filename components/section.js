@@ -7,11 +7,12 @@ const MotionDiv = chakra(motion.div, {
     }
 })
 
-const Section = ({ children, delay=0 }) => (
+const Section = ({ children, delay=0, time=0.8 }) => (
+
     <MotionDiv
         initial={{y: 10, opacity: 0}}
         animate={{y: 0, opacity: 1}}
-        transition={{duration: 0.8, delay}}
+        transition={{duration: time, delay}}
         mb={6}
         fontSize="1.2em"
     >

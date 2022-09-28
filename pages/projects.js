@@ -16,10 +16,16 @@ const GradientText = styled.h1`
     -webkit-text-fill-color: transparent;
 `
 
+const mounted = false
+
 const Projects = () => {
     useEffect(() => {
         window.scrollTo(0, 0)
-    })
+    });
+
+    useEffect(() => {
+        mounted = true;
+    }, []);
 
     return (
         <Container maxW="container.lg">
@@ -35,22 +41,22 @@ const Projects = () => {
             <br></br>
 
             <SimpleGrid columns={[1, 1, 2]} gap={"5vw"}>
-                <Section delay={0.3}>
+                <Section delay={(mounted ? 0 : 0.3)} time={(mounted ? 0 : 0.8)}>
                     <KnightGridItem textColor="#ff7878">
                         A solver that finds a cyclical path a knight can take on an arbitrarily-sized chessboard such that each square is touched exactly once.
                     </KnightGridItem>
                 </Section>
-                <Section delay={0.3}>
+                <Section delay={(mounted ? 0 : 0.3)} time={(mounted ? 0 : 0.8)}>
                     <SlangGridItem textColor="#ff8877">
                         A compiler for a custom programming language that offers easy to type Python-like syntax and runtime performance on par with C and C++.
                     </SlangGridItem>
                 </Section>
-                <Section delay={1.1}>
+                <Section delay={(mounted ? 0 : 1.1)} time={(mounted ? 0 : 0.8)}>
                     <IonGridItem textColor="#ff6c69">
                         A web-hosted chess engine that can find the optimal move in any given position in under 1.5 seconds by looking at least 12 moves in the future.
                     </IonGridItem>
                 </Section>
-                <Section delay={1.1}>
+                <Section delay={(mounted ? 0 : 1.1)} time={(mounted ? 0 : 0.8)}>
                     <AllegroGridItem textColor="#ff6181">
                         A 3D animation software that creates motion graphics with only a sentence as a given input, using natural language processing and machine-learning models.
                     </AllegroGridItem>
@@ -59,7 +65,7 @@ const Projects = () => {
 
             <Box mt={6} align="center">
                 <Box flexGrow={1}>
-                    <Section delay={1.9}>
+                    <Section delay={(mounted ? 0 : 1.9)} time={(mounted ? 0 : 0.8)}>
                         Other projects can be found at my <a href="https://github.com/shreyasravi320" target="_blank" rel="noreferrer" style={{color: theme.colors.linkBlue, textDecoration: "underline"}}>GitHub</a>
                     </Section>
                 </Box>

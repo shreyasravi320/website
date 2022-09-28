@@ -10,10 +10,16 @@ const GradientText = styled.h1`
     -webkit-text-fill-color: transparent;
 `
 
+const mounted = false;
+
 const Resume = () => {
     useEffect(() => {
         window.scrollTo(0, 0)
     })
+
+    useEffect(() => {
+        mounted = true;
+    }, []);
 
     return (
         <Container maxW="container.lg">
@@ -27,7 +33,7 @@ const Resume = () => {
                 </Box>
             </Box>
 
-            <Section delay={0.3}>
+            <Section delay={(mounted ? 0 : 0.3)} time={(mounted ? 0 : 0.8)}>
                 <Heading
                     as="h3"
                     variant="section-title"
@@ -45,7 +51,7 @@ const Resume = () => {
                     </li>
                 </ul>
             </Section>
-            <Section delay={0.9}>
+            <Section delay={(mounted ? 0 : 1.2)} time={(mounted ? 0 : 0.8)}>
                 <Heading
                     as="h3"
                     variant="section-title"
@@ -88,7 +94,7 @@ const Resume = () => {
                     </li>
                 </ul>
             </Section>
-            <Section delay={1.5}>
+            <Section delay={(mounted ? 0 : 2.1)} time={(mounted ? 0 : 0.8)}>
                 <Heading
                     as="h3"
                     variant="section-title"
@@ -101,7 +107,7 @@ const Resume = () => {
                 <br></br>
                 <strong>Familiar: </strong> Assembly (NASM), HTML + CSS, TypeScript
             </Section>
-            <Section delay={1.5}>
+            <Section delay={(mounted ? 0 : 3.0)} time={(mounted ? 0 : 0.8)}>
                 <Heading
                     as="h3"
                     variant="section-title"
@@ -112,7 +118,7 @@ const Resume = () => {
                 </Heading>
                 Programming Languages, Algorithms, Data Structures, Linear Algebra, Multivariable Calculus, Differential Equations
             </Section>
-            <Section delay={1.5}>
+            <Section delay={(mounted ? 0 : 3.0)} time={(mounted ? 0 : 0.8)}>
                 <Heading
                     as="h3"
                     variant="section-title"
