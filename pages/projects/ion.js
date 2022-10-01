@@ -47,7 +47,7 @@ const Ion = () =>
                 <IonSVG fill={useColorModeValue("black", "white")}/>
             </Section>
 
-            <Section delay={(mounted ? 0 : 1.1)} time={(mounted ? 0 : 0.8)}>
+            <Section delay={(mounted ? 0 : 1.2)} time={(mounted ? 0 : 0.8)}>
                 <Heading
                     as="h3"
                     variant="section-title"
@@ -56,7 +56,7 @@ const Ion = () =>
                 </Heading>
                 For any given position in a game of chess, compute the best move for the next player.
             </Section>
-            <Section delay={(mounted ? 0 : 1.9)} time={(mounted ? 0 : 0.8)}>
+            <Section delay={(mounted ? 0 : 2.1)} time={(mounted ? 0 : 0.8)}>
             <Heading
                     as="h3"
                     variant="section-title"

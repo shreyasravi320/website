@@ -45,7 +45,7 @@ const Slang = () =>
                 <SlangSVG fill={useColorModeValue("black", "white")}/>
             </Section>
 
-            <Section delay={(mounted ? 0 : 1.1)} time={(mounted ? 0 : 0.8)}>
+            <Section delay={(mounted ? 0 : 1.2)} time={(mounted ? 0 : 0.8)}>
                 <Heading
                     as="h3"
                     variant="section-title"
@@ -54,7 +54,7 @@ const Slang = () =>
                 </Heading>
                 Create a programming language that has easy to understand Python-like syntax as well as execution speed on par with C and C++.
             </Section>
-            <Section delay={(mounted ? 0 : 1.9)} time={(mounted ? 0 : 0.8)}>
+            <Section delay={(mounted ? 0 : 2.1)} time={(mounted ? 0 : 0.8)}>
             <Heading
                     as="h3"
                     variant="section-title"

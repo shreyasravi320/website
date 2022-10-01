@@ -47,7 +47,7 @@ const KnightTour = () =>
                 <KnightSVG fill={useColorModeValue("black", "white")}/>
             </Section>
 
-            <Section delay={(mounted ? 0 : 1.1)} time={(mounted ? 0 : 0.8)}>
+            <Section delay={(mounted ? 0 : 1.2)} time={(mounted ? 0 : 0.8)}>
                 <Heading
                     as="h3"
                     variant="section-title"
@@ -62,7 +62,7 @@ const KnightTour = () =>
                     On an arbitrary $n \times n$ chessboard, find a path that a knight can take to visit every square exactly once and return to the starting square.
                 </Latex>
             </Section>
-            <Section delay={(mounted ? 0 : 1.9)} time={(mounted ? 0 : 0.8)}>
+            <Section delay={(mounted ? 0 : 2.1)} time={(mounted ? 0 : 0.8)}>
                 <Heading
                     as="h3"
                     variant="section-title"
@@ -85,7 +85,7 @@ const KnightTour = () =>
 
                 <br></br>
                 <br></br>
-                <Section delay={(mounted ? 0 : 2.7)} time={(mounted ? 0 : 0.8)}>
+                <Section delay={(mounted ? 0 : 3.0)} time={(mounted ? 0 : 0.8)}>
                     <Image src={KnightDiag} layout="responsive"/>
                     <figure style={{textAlign: "center"}}><i><small>KnightTour on a 12 x 12 board by generating four 6 x 6 tours and merging them</small></i></figure>
 

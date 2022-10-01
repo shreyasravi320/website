@@ -3,7 +3,7 @@ import styled from "@emotion/styled"
 import { keyframes } from "@emotion/react"
 import Section from "../components/section"
 import { useEffect } from 'react'
-import Typist from 'react-typist'
+import Typist from "react-typist"
 
 const gradient = keyframes`
 from {
@@ -22,8 +22,8 @@ const AnimatedGradientText = styled.h1`
     -webkit-animation: ${gradient} 6s ease-in-out infinite;
 `
 
-const mounted = false;
-const text = <Typist startDelay={1000} avgTypingDelay={120} cursor={{hideWhenDone: true, hideWhenDoneDelay: 2400, blink: true}}>Hi, <Typist.Delay ms={250}/> I&apos;m <Typist.Delay ms={50}/> Shreyas</Typist>;
+let mounted = false;
+let text = <Typist startDelay={1000} avgTypingDelay={120} cursor={{hideWhenDone: true, hideWhenDoneDelay: 2400, blink: true}}>Hi, <Typist.Delay ms={250}/> I&apos;m <Typist.Delay ms={50}/> Shreyas</Typist>;
 
 const Page = () => {
 
@@ -31,11 +31,14 @@ const Page = () => {
         window.scrollTo(0, 0)
     });
 
-    useEffect(() => {
+    /*if (mounted === true)
+    {
         text = <div>Hi, I&apos;m Shreyas</div>;
+    }*/
+
+    useEffect(() => {
         mounted = true;
     }, []);
-
 
     return (
         <Container maxW="container.lg">
