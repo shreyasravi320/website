@@ -75,15 +75,26 @@ const NavBar = props => {
                                 variant="outline"
                                 aria-label="Options"
                             />
-                            <MenuList>
+                            <MenuList
+                                bg={useColorModeValue("white", "black")}
+                            >
                                 <NextLink href="/" passHref>
-                                    <MenuItem as={Link} style={{textDecoration: "none"}}>Home</MenuItem>
+                                    <MenuItem
+                                        as={Link}
+                                        _hover={{bgColor: useColorModeValue("gray.100", "gray.900")}}
+                                        style={{textDecoration: "none"}}>Home</MenuItem>
                                 </NextLink>
                                 <NextLink href="/projects" passHref>
-                                    <MenuItem as={Link} style={{textDecoration: "none"}}>Projects</MenuItem>
+                                    <MenuItem
+                                        as={Link}
+                                        _hover={{bgColor: useColorModeValue("gray.100", "gray.900")}}
+                                        style={{textDecoration: "none"}}>Projects</MenuItem>
                                 </NextLink>
                                 <NextLink href="/resume" passHref>
-                                    <MenuItem as={Link} style={{textDecoration: "none"}}>Resume</MenuItem>
+                                    <MenuItem
+                                        as={Link}
+                                        _hover={{bgColor: useColorModeValue("gray.100", "gray.900")}}
+                                        style={{textDecoration: "none"}}>Resume</MenuItem>
                                 </NextLink>
                             </MenuList>
                         </Menu>
