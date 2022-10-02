@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import Head from 'next/head'
 
 const variants = {
     hidden: { opacity: 0, x: 0, y: 20 },
@@ -8,8 +7,6 @@ const variants = {
 }
 
 const Layout = ({ children, title }) => {
-    const t = `${title}`
-
     return (
         <motion.article
             initial="hidden"
@@ -20,6 +17,7 @@ const Layout = ({ children, title }) => {
             style={{ position: 'relative' }}
         >
             <>
+                {title}
                 {children}
             </>
         </motion.article>

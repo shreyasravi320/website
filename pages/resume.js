@@ -11,16 +11,10 @@ const GradientText = styled.h1`
     -webkit-text-fill-color: transparent;
 `
 
-const mounted = false;
-
 const Resume = () => {
     useEffect(() => {
         window.scrollTo(0, 0)
     })
-
-    useEffect(() => {
-        mounted = true;
-    }, []);
 
     return (
         <Layout>
