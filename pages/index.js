@@ -3,7 +3,7 @@ import styled from "@emotion/styled"
 import { keyframes } from "@emotion/react"
 import Section from "../components/section"
 import { useEffect } from 'react'
-import Typist from "react-typist"
+// import Typist from "react-typist"
 import Layout from '../components/layouts/child'
 
 const gradient = keyframes`
