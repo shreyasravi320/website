@@ -42,7 +42,8 @@ const Page = () => {
                 <Box display={{md:"flex"}} mt={6} align="left">
                     <Box flexGrow={1}>
                         <Heading as="h2" variant="page-title">
-                            <AnimatedGradientText>{text}</AnimatedGradientText>
+                            {/*<AnimatedGradientText>{text}</AnimatedGradientText>*/}
+                            <AnimatedGradientText>Hi, I&apos;m Shreyas</AnimatedGradientText>
                                 {/*<Typist startDelay={1000} avgTypingDelay={120}
                                     cursor={{hideWhenDone: true, hideWhenDoneDelay: 2400, blink: true}}>
                                     Hi, <Typist.Delay ms={250}/> I&apos;m <Typist.Delay ms={50}/> Shreyas
@@ -52,13 +53,13 @@ const Page = () => {
                     </Box>
                 </Box>
 
-                <Section delay={(mounted ? 0 : 3.8)}>
+                <Section delay={(mounted ? 0 : 0)}>
                     <Box borderRadius="lg" bg={useColorModeValue("gray.100", "gray.900")} p={3} mt={6} mb={10} align="center">
                         Welcome to my website!
                     </Box>
                 </Section>
 
-                <Section delay={(mounted ? 0.3 : 3.8)}>
+                <Section delay={(mounted ? 0.3 : 0.3)}>
                     {/*<Face1SVG style={{height: "20vw" }} fill={useColorModeValue("black", "white")}/>*/}
                     <Heading
                         as="h3"
