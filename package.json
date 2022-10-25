@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev -H 0.0.0.0",
     "build": "next build",
+    "start-backend": "cd pages/projects/ion && python3 app.py",
     "prettier": "prettier -write",
     "lint": "next lint"
   },
@@ -16,6 +17,7 @@
     "@chakra-ui/react": "^1.8.6",
     "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.8.1",
+    "axios": "^0.27.2",
     "babel": "^6.23.0",
     "babel-runtime": "^6.26.0",
     "framer-motion": "^6.5.1",
