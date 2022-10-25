@@ -71,7 +71,7 @@ const Page = () => {
                     Something about the problem-solving skills and logical reasoning drew me in, and once I started working on a task, I couldn&apos;t stop.
                     <br></br>
                     <br></br>
-                    I am majoring in Computer Science at Tufts University. I&apos;ve collected a few of my most exciting projects I&apos;ve made, and I hope that readers share the same wonder and joy that I experienced when making these discoveries.
+                    Now, I am majoring in Computer Science at Tufts University. I&apos;ve collected a few of my most exciting projects I&apos;ve made, and I hope that readers share the same wonder and joy that I experienced when making these discoveries.
                 </Section>
             </Container>
         </Layout>

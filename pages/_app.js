@@ -3,6 +3,7 @@ import Layout from "../components/layouts/main"
 import theme from "../lib/theme"
 import { AnimatePresence } from 'framer-motion'
 import './cursor.css'
+import './index.css'
 
 const Website = ({ Component, pageProps, router }) => {
     return (
