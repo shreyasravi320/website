@@ -24,7 +24,7 @@ const AnimatedGradientText = styled.h1`
 `
 
 let mounted = false;
-let text = <Typist startDelay={1000} avgTypingDelay={120} cursor={{hideWhenDone: true, hideWhenDoneDelay: 2400, blink: true}}>Hi, <Typist.Delay ms={250}/> I&apos;m <Typist.Delay ms={50}/> Shreyas</Typist>;
+// let text = <Typist startDelay={1000} avgTypingDelay={120} cursor={{hideWhenDone: true, hideWhenDoneDelay: 2400, blink: true}}>Hi, <Typist.Delay ms={250}/> I&apos;m <Typist.Delay ms={50}/> Shreyas</Typist>;
 
 const Page = () => {
 
