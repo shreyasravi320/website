@@ -65,7 +65,7 @@ const KnightTour = () =>
                         Solution
                     </Heading>
                     KnightTour is a solver for the closed <a href="https://en.wikipedia.org/wiki/Knight%27s_tour" target="_blank" rel="noreferrer" style={{color: theme.colors.linkBlue, textDecoration: "underline"}}>knight&apos;s tour</a> problem: finding a path for the knight to touch every square on a chessboard exactly once and return back to start.
-
+                    &nbsp;<a href="knight/solver/" style={{color: theme.colors.linkBlue, textDecoration: "underline"}}>Use it here!</a>
                     <br></br>
                     <br></br>
                     The knight&apos;s tour problem is a more specific version of the generalized problem of finding a <a href="https://en.wikipedia.org/wiki/Hamiltonian_path" target="_blank" rel="noreferrer" style={{color: theme.colors.linkBlue, textDecoration: "underline"}}>Hamiltonian cycle</a> in a graph.
