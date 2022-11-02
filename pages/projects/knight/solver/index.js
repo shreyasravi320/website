@@ -13,6 +13,8 @@ import { useRef, useEffect, useState } from 'react'
 import { Row, Col } from 'react-grid-system'
 import Xarrow, { Xwrapper } from 'react-xarrows'
 import styled from '@emotion/styled'
+import React from "react" 
+React.useLayoutEffect = React.useEffect 
 
 const Square = (size, num) => {
     return <div style={{
@@ -343,7 +345,7 @@ const Lines = (val, color) => {
         boards[(val - 6) / 2].map((cell) => cell.map((number) => <Xarrow
             key={number}
             start={`sq${number.toString()}`}
-            end={`sq${(number + 1 % (val * val)).toString()}`}
+            end={`sq${((number + 1) % (val * val)).toString()}`}
             startAnchor="middle"
             endAnchor="middle"
             path="straight"
