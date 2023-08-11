@@ -1,4 +1,5 @@
-import { Heading, Container, Box, useColorModeValue } from '@chakra-ui/react'
+import { Heading, Container, Box, Button, useColorModeValue } from '@chakra-ui/react'
+import NextLink from "next/link"
 import Image from "next/image"
 import styled from '@emotion/styled'
 import Section from '../../components/section'
@@ -56,6 +57,20 @@ const KnightTour = () =>
                     <Latex>
                         On an arbitrary $n \times n$ chessboard, find a path that a knight can take to visit every square exactly once and return to the starting square.
                     </Latex>
+
+                    <br/>
+                    <br/>
+
+                    <NextLink href="knight/solver/">
+                        <Button
+                            bg="linear-gradient(135deg, #ff7c20, #ff4093)"
+                            color={useColorModeValue('white', 'black')}
+                            _hover={{bg: "linear-gradient(135deg, #ee7c20, #ee4093)"}}
+                            colorScheme="transparent"
+                        >
+                            Play with it here!
+                        </Button>
+                    </NextLink>
                 </Section>
                 <Section delay={0.8}>
                     <Heading
@@ -65,8 +80,6 @@ const KnightTour = () =>
                         Solution
                     </Heading>
                     KnightTour is a solver for the closed <a href="https://en.wikipedia.org/wiki/Knight%27s_tour" target="_blank" rel="noreferrer" style={{color: theme.colors.linkBlue, textDecoration: "underline"}}>knight&apos;s tour</a> problem: finding a path for the knight to touch every square on a chessboard exactly once and return back to start.
-                    {/* &nbsp; */}
-                    <a href="knight/solver/" style={{color: theme.colors.linkBlue, textDecoration: "underline"}}>Use it here!</a>
                     <br></br>
                     <br></br>
                     The knight&apos;s tour problem is a more specific version of the generalized problem of finding a <a href="https://en.wikipedia.org/wiki/Hamiltonian_path" target="_blank" rel="noreferrer" style={{color: theme.colors.linkBlue, textDecoration: "underline"}}>Hamiltonian cycle</a> in a graph.

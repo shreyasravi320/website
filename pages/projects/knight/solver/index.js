@@ -470,8 +470,10 @@ const Solver = () => {
                                 </Slider>
                                 <Button
                                     onClick={() => setEndAnimation(true)}
-                                    bg={useColorModeValue("gray.100", "gray.900")}
-                                    _hover={{bgColor: useColorModeValue("gray.200", "gray.800")}}
+                                    bg="linear-gradient(135deg, #ff7c20, #ff4093)"
+                                    color={useColorModeValue('white', 'black')}
+                                    _hover={{bg: "linear-gradient(135deg, #ee7c20, #ee4093)"}}
+                                    colorScheme="transparent"
                                 >Skip animation</Button>
                             </Box>
                             {Lines(dimensions, sliderValue, sliderValue ** 2, endAnimation)}
