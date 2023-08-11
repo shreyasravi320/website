@@ -9,9 +9,11 @@ const ThemeToggle = () => {
     return (
         <IconButton
             aria-label="Toggle theme"
-            colorScheme="gray"
+            color={useColorModeValue("gray.900", "gray.100")}
+            bg={useColorModeValue("gray.100", "gray.900")}
             icon={useColorModeValue(<MoonIcon/>, <SunIcon/>)}
             onClick={toggleColorMode}
+            _hover={{bgColor: useColorModeValue("gray.200", "gray.800")}}
             fontSize="1.2em"
         >
         </IconButton>

@@ -1,7 +1,7 @@
 import Layout from '../../../../components/layouts/child'
 import Xarrow, { Xwrapper } from 'react-xarrows'
 import {
-    Container, Box, Stack,
+    Container, Box, Stack, Button,
     Slider,
     SliderTrack,
     SliderFilledTrack,
@@ -16,7 +16,7 @@ import styled from '@emotion/styled'
 import React from "react" 
 React.useLayoutEffect = React.useEffect 
 
-const Square = (size, num, numSqs) => {
+const Square = (size, num, numSqs, color) => {
     return (
         <div
           style={{
@@ -27,6 +27,7 @@ const Square = (size, num, numSqs) => {
             width: size,
             height: size,
             padding: 0,
+            backgroundColor: color
           }}
           id={`${numSqs}-sq${num}`}
         ></div>
@@ -344,9 +345,33 @@ const boards = [
     ],
 ]
 
-const Lines = (num) => {
+const Lines = (dimensions, sliderVal, num, end) => {
+    const [linesToDraw, setLinesToDraw] = useState(0)
+
+    useEffect(() => {
+        if (end)
+        {
+            setLinesToDraw(num)
+        }
+    }, [linesToDraw, num])
+    
+    useEffect(() => {
+        if (!end && linesToDraw < num)
+        {
+            const timer = setTimeout(() => {
+                setLinesToDraw(linesToDraw + 1)
+            }, sliderVal < 12 ? 100 : sliderVal < 24 ? 50 : 0) // 500 milliseconds = half a second
+        
+            return () => clearTimeout(timer)
+        }
+    }, [linesToDraw, num])
+
+    useEffect(() => {
+        setLinesToDraw(0);
+    }, [num])
+
     const lines = []
-    for (let i = 0; i < num; i++)
+    for (let i = 0; i < linesToDraw; i++)
     {
         lines.push(
             <Xarrow
@@ -359,12 +384,23 @@ const Lines = (num) => {
                 showHead={false}
                 curveness={0}
                 lineColor='#ff5e59'
-                strokeWidth={1}
+                strokeWidth={2}
             />
         )
     }
+
+    const board = <Box>{boards[(sliderVal - 6) / 2].map((cell) =>
+        <Row key={cell} align="center">{cell.map((number) =>
+            <Col key={number} style={{ padding: 0 }}>
+                {Square(dimensions.width / sliderVal, number, sliderVal ** 2,
+                    number <= linesToDraw ? '#63636363' : null)}
+            </Col>)}
+        </Row>)}
+    </Box>
+
     return (
         <div>
+            {board}
             {lines}
         </div>
     )
@@ -377,8 +413,9 @@ const GradientText = styled.h1`
     -webkit-text-fill-color: transparent;
 `
 const Solver = () => {
-    const refContainer = useRef();
-    const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+    const refContainer = useRef()
+    const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
+    const [endAnimation, setEndAnimation] = useState(false)
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -386,18 +423,12 @@ const Solver = () => {
             setDimensions({
                 width: refContainer.current.clientWidth,
                 height: refContainer.current.clientHeight,
-            });
+            })
         }
-    }, []);
+    }, [])
 
     const [sliderValue, setSliderValue] = useState(6)
-    const board = <Box>{boards[(sliderValue - 6) / 2].map((cell) =>
-        <Row key={cell} align="center">{cell.map((number) =>
-            <Col key={number} style={{ padding: 0 }}>
-                {Square(dimensions.width / sliderValue, number, sliderValue ** 2)}
-            </Col>)}
-        </Row>)}
-    </Box>
+
 
     return (
         <Layout>
@@ -418,7 +449,8 @@ const Solver = () => {
                     <Stack spacing={10}>
                         <Xwrapper>
                             <Box pt={6} pb={2}>
-                                <Slider defaultValue={6} min={6} max={32} step={2} onChange={(val) => setSliderValue(val)}>
+                                <Slider defaultValue={6} min={6} max={32} step={2} onChange={(val) =>
+                                { setSliderValue(val); setEndAnimation(false) }}>
                                     {/* {sliderVals.map((v) => <SliderMark value={v} {...labelStyles}>{v}</SliderMark>)} */}
                                     <SliderMark
                                         value={sliderValue}
@@ -436,9 +468,13 @@ const Solver = () => {
                                     </SliderTrack>
                                     <SliderThumb />
                                 </Slider>
+                                <Button
+                                    onClick={() => setEndAnimation(true)}
+                                    bg={useColorModeValue("gray.100", "gray.900")}
+                                    _hover={{bgColor: useColorModeValue("gray.200", "gray.800")}}
+                                >Skip animation</Button>
                             </Box>
-                            {board}
-                            {Lines(sliderValue ** 2)}
+                            {Lines(dimensions, sliderValue, sliderValue ** 2, endAnimation)}
                         </Xwrapper>
                     </Stack>
                 </Box>
