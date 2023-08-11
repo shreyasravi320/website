@@ -1,4 +1,5 @@
 import Layout from '../../../../components/layouts/child'
+import Xarrow, { Xwrapper } from 'react-xarrows'
 import {
     Container, Box, Stack,
     Slider,
@@ -11,22 +12,25 @@ import {
 } from '@chakra-ui/react'
 import { useRef, useEffect, useState } from 'react'
 import { Row, Col } from 'react-grid-system'
-import Xarrow, { Xwrapper } from 'react-xarrows'
 import styled from '@emotion/styled'
 import React from "react" 
 React.useLayoutEffect = React.useEffect 
 
-const Square = (size, num) => {
-    return <div style={{
-        borderStyle: "solid",
-        borderWidth: 1,
-        alignItems: "center",
-        justifyContent: "center",
-        width: size,
-        height: size,
-        padding: 0
-    }}
-        id={`sq${num}`}></div>
+const Square = (size, num, numSqs) => {
+    return (
+        <div
+          style={{
+            borderStyle: "solid",
+            borderWidth: 1,
+            alignItems: "center",
+            justifyContent: "center",
+            width: size,
+            height: size,
+            padding: 0,
+          }}
+          id={`${numSqs}-sq${num}`}
+        ></div>
+    )
 }
 
 const boards = [
@@ -340,19 +344,29 @@ const boards = [
     ],
 ]
 
-const Lines = (val, color) => {
+const Lines = (num) => {
+    const lines = []
+    for (let i = 0; i < num; i++)
+    {
+        lines.push(
+            <Xarrow
+                key={i}
+                zIndex={100}
+                start={`${num}-sq${i}`}
+                startAnchor='middle'
+                end={`${num}-sq${(i + 1) % num}`}
+                endAnchor='middle'
+                showHead={false}
+                curveness={0}
+                lineColor='#ff5e59'
+                strokeWidth={1}
+            />
+        )
+    }
     return (
-        boards[(val - 6) / 2].map((cell) => cell.map((number) => <Xarrow
-            key={number}
-            start={`sq${number.toString()}`}
-            end={`sq${((number + 1) % (val * val)).toString()}`}
-            startAnchor="middle"
-            endAnchor="middle"
-            path="straight"
-            lineColor={color}
-            strokeWidth="2"
-            showHead={false}
-        />))
+        <div>
+            {lines}
+        </div>
     )
 }
 
@@ -377,7 +391,13 @@ const Solver = () => {
     }, []);
 
     const [sliderValue, setSliderValue] = useState(6)
-    const board = <Box>{boards[(sliderValue - 6) / 2].map((cell) => <Row key={cell} align="center">{cell.map((number) => <Col key={number} style={{ padding: 0 }}>{Square(dimensions.width / sliderValue, number)}</Col>)}</Row>)}</Box>
+    const board = <Box>{boards[(sliderValue - 6) / 2].map((cell) =>
+        <Row key={cell} align="center">{cell.map((number) =>
+            <Col key={number} style={{ padding: 0 }}>
+                {Square(dimensions.width / sliderValue, number, sliderValue ** 2)}
+            </Col>)}
+        </Row>)}
+    </Box>
 
     return (
         <Layout>
@@ -394,9 +414,9 @@ const Solver = () => {
                     </Box>
                 </Box>
 
-                <Xwrapper>
-                    <Box display={{ md: "flex" }} mt={6} ref={refContainer}>
-                        <Stack spacing={10}>
+                <Box display={{ md: "flex" }} mt={6} ref={refContainer}>
+                    <Stack spacing={10}>
+                        <Xwrapper>
                             <Box pt={6} pb={2}>
                                 <Slider defaultValue={6} min={6} max={32} step={2} onChange={(val) => setSliderValue(val)}>
                                     {/* {sliderVals.map((v) => <SliderMark value={v} {...labelStyles}>{v}</SliderMark>)} */}
@@ -418,10 +438,10 @@ const Solver = () => {
                                 </Slider>
                             </Box>
                             {board}
-                            {Lines(sliderValue, useColorModeValue("black", "white"))}
-                        </Stack>
-                    </Box>
-                </Xwrapper>
+                            {Lines(sliderValue ** 2)}
+                        </Xwrapper>
+                    </Stack>
+                </Box>
             </Container>
         </Layout>
     )
