@@ -8,13 +8,11 @@ import {
     SliderThumb,
     SliderMark,
     useColorModeValue,
-    Heading
 } from '@chakra-ui/react'
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useLayoutEffect, useEffect, useState } from 'react'
 import { Row, Col } from 'react-grid-system'
 import styled from '@emotion/styled'
 import React from "react" 
-React.useLayoutEffect = React.useEffect 
 
 const Square = (size, num, numSqs, color) => {
     return (
@@ -24,9 +22,9 @@ const Square = (size, num, numSqs, color) => {
             borderWidth: 1,
             alignItems: "center",
             justifyContent: "center",
+            padding: 0,
             width: size,
             height: size,
-            padding: 0,
             backgroundColor: color
           }}
           id={`${numSqs}-sq${num}`}
@@ -345,22 +343,19 @@ const boards = [
     ],
 ]
 
-const Lines = (dimensions, sliderVal, num, end) => {
+const Lines = (squareSize, sliderVal, num, end) => {
     const [linesToDraw, setLinesToDraw] = useState(0)
-
+    
     useEffect(() => {
         if (end)
         {
             setLinesToDraw(num)
         }
-    }, [linesToDraw, num])
-    
-    useEffect(() => {
-        if (!end && linesToDraw < num)
+        else if (!end && linesToDraw < num)
         {
             const timer = setTimeout(() => {
                 setLinesToDraw(linesToDraw + 1)
-            }, sliderVal < 12 ? 100 : sliderVal < 24 ? 50 : 0) // 500 milliseconds = half a second
+            }, sliderVal < 12 ? 100 : sliderVal < 24 ? 50 : 0)
         
             return () => clearTimeout(timer)
         }
@@ -389,11 +384,22 @@ const Lines = (dimensions, sliderVal, num, end) => {
         )
     }
 
-    const board = <Box>{boards[(sliderVal - 6) / 2].map((cell) =>
+    const board = 
+    <Box
+        className="squares"
+        style={{
+            display: "flex",
+            flexWrap: "wrap",
+            flex: 1,
+            justifyContent: "center",
+            alignContent: "center",
+            gap: 0,
+        }}
+    >{boards[(sliderVal - 6) / 2].map((cell) =>
         <Row key={cell} align="center">{cell.map((number) =>
             <Col key={number} style={{ padding: 0 }}>
                 {Square(
-                    dimensions.width / sliderVal,
+                    squareSize,
                     number,
                     sliderVal ** 2,
                     number <= linesToDraw ? '#63636363' : null)}
@@ -416,26 +422,36 @@ const GradientText = styled.h1`
     -webkit-text-fill-color: transparent;
 `
 const Solver = () => {
-    const refContainer = useRef()
-    const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
     const [endAnimation, setEndAnimation] = useState(false)
 
     useEffect(() => {
         window.scrollTo(0, 0)
-        if (refContainer.current) {
-            setDimensions({
-                width: refContainer.current.clientWidth,
-                height: refContainer.current.clientHeight,
-            })
-        }
     }, [])
 
-    const [sliderValue, setSliderValue] = useState(6)
+    const [sliderValue, setSliderValue] = useState(12)
+    const [animationValue, setAnimationValue] = useState(12)
+    const [squareSize, setSquareSize] = useState(0)
+
+    useLayoutEffect(() => {
+        const updateSquareSize = () => {
+            const width = window.innerWidth - document.querySelector('.squares').getBoundingClientRect().left - window.scrollX
+            const height = window.innerHeight - document.querySelector('.squares').getBoundingClientRect().top - window.scrollY
+            const newSize = Math.min(height, width) / animationValue
+            setSquareSize(newSize)
+        };
+
+        updateSquareSize()
+        window.addEventListener('resize', updateSquareSize)
+    
+        return () => {
+            window.removeEventListener('resize', updateSquareSize)
+        }
+    }, [animationValue]);
 
     return (
         <Layout>
             <Container maxW="container.md">
-                <Box display={{md:"flex"}} mt={6}>
+                {/* <Box display={{md:"flex"}} mt={6}>
                     <Box flexGrow={1}>
                         <GradientText>
                             <Heading
@@ -445,25 +461,26 @@ const Solver = () => {
                             </Heading>
                         </GradientText>
                     </Box>
-                </Box>
-
-                <Box display={{ md: "flex" }} mt={6} ref={refContainer}>
-                    <Stack spacing={10}>
+                </Box> */}
+                <Box display={{ md: "flex" }} mt={6}>
+                    <Stack spacing={5}>
                         <Xwrapper>
                             <Box pt={6} pb={2}>
-                                <Slider defaultValue={6} min={6} max={32} step={2} onChange={(val) =>
-                                { setSliderValue(val); setEndAnimation(false) }}>
-                                    {/* {sliderVals.map((v) => <SliderMark value={v} {...labelStyles}>{v}</SliderMark>)} */}
+                                <Slider
+                                    defaultValue={12} min={6} max={32} step={2}
+                                    onChange={(val) => setSliderValue(val)}
+                                    onChangeEnd={(val) => { setEndAnimation(false); setAnimationValue(val) }}
+                                >
                                     <SliderMark
                                         value={sliderValue}
                                         textAlign='center'
                                         bg='linear-gradient(135deg, #ff7c20, #ff4093)'
                                         color={useColorModeValue("white", "black")}
                                         mt='-10'
-                                        ml='-6'
-                                        w='12'
+                                        ml={sliderValue < 10 ? -7 : -10}
+                                        w={sliderValue < 10 ? 14 : 20}
                                     >
-                                        {sliderValue}
+                                        {sliderValue} x {sliderValue}
                                     </SliderMark>
                                     <SliderTrack>
                                         <SliderFilledTrack bg='linear-gradient(90deg, #ff7c20, #ff4093)' />
@@ -472,13 +489,13 @@ const Solver = () => {
                                 </Slider>
                                 <Button
                                     onClick={() => setEndAnimation(true)}
-                                    bg="linear-gradient(135deg, #ff7c20, #ff4093)"
-                                    color={useColorModeValue('white', 'black')}
-                                    _hover={{bg: "linear-gradient(135deg, #dd7c20, #dd4093)"}}
+                                    bg={useColorModeValue("gray.100", "gray.900")}
+                                    color={useColorModeValue('black', 'white')}
+                                    _hover={{bg: useColorModeValue("gray.200", "gray.800")}}
                                     colorScheme="transparent"
                                 >Skip animation</Button>
                             </Box>
-                            {Lines(dimensions, sliderValue, sliderValue ** 2, endAnimation)}
+                            {Lines(squareSize, animationValue, animationValue ** 2, endAnimation)}
                         </Xwrapper>
                     </Stack>
                 </Box>
