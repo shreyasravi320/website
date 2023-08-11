@@ -24,7 +24,7 @@ const Slang = () =>
 
     return (
         <Layout>
-            <Container maxW="container.lg">
+            <Container maxW="container.md">
                 <Box display={{md:"flex"}} mt={6}>
                     <Box flexGrow={1}>
                         <GradientText>

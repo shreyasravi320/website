@@ -34,7 +34,7 @@ const NavBar = props => {
             as="nav" w="100%"
             // bg={"#00000000"}
             bg={useColorModeValue("white", "black")}
-            zIndex={100}
+            zIndex={200}
             {...props}
         >
             <Container
@@ -72,8 +72,11 @@ const NavBar = props => {
                             <MenuButton
                                 as={IconButton}
                                 icon={<HamburgerIcon/>}
-                                variant="outline"
+                                colorScheme="transparent"
                                 aria-label="Options"
+                                color={useColorModeValue("gray.900", "gray.100")}
+                                bg={useColorModeValue("gray.100", "gray.900")}
+                                _hover={{bgColor: useColorModeValue("gray.200", "gray.800")}}
                             />
                             <MenuList
                                 bg={useColorModeValue("white", "black")}

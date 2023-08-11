@@ -26,7 +26,7 @@ const KnightTour = () =>
 
     return (
         <Layout>
-            <Container maxW="container.lg">
+            <Container maxW="container.md">
                 <Box display={{md:"flex"}} mt={6}>
                     <Box flexGrow={1}>
                         <GradientText>
@@ -65,7 +65,7 @@ const KnightTour = () =>
                         <Button
                             bg="linear-gradient(135deg, #ff7c20, #ff4093)"
                             color={useColorModeValue('white', 'black')}
-                            _hover={{bg: "linear-gradient(135deg, #ee7c20, #ee4093)"}}
+                            _hover={{bg: "linear-gradient(135deg, #dd7c20, #dd4093)"}}
                             colorScheme="transparent"
                         >
                             Play with it here!

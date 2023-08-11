@@ -38,7 +38,7 @@ const Page = () => {
 
     return (
         <Layout>
-            <Container maxW="container.lg">
+            <Container maxW="container.md">
                 <Box display={{md:"flex"}} mt={6} align="left">
                     <Box flexGrow={1}>
                         <Heading as="h2" variant="page-title">

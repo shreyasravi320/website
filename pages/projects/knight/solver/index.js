@@ -392,7 +392,10 @@ const Lines = (dimensions, sliderVal, num, end) => {
     const board = <Box>{boards[(sliderVal - 6) / 2].map((cell) =>
         <Row key={cell} align="center">{cell.map((number) =>
             <Col key={number} style={{ padding: 0 }}>
-                {Square(dimensions.width / sliderVal, number, sliderVal ** 2,
+                {Square(
+                    dimensions.width / sliderVal,
+                    number,
+                    sliderVal ** 2,
                     number <= linesToDraw ? '#63636363' : null)}
             </Col>)}
         </Row>)}
@@ -429,7 +432,6 @@ const Solver = () => {
 
     const [sliderValue, setSliderValue] = useState(6)
 
-
     return (
         <Layout>
             <Container maxW="container.md">
@@ -458,7 +460,7 @@ const Solver = () => {
                                         bg='linear-gradient(135deg, #ff7c20, #ff4093)'
                                         color={useColorModeValue("white", "black")}
                                         mt='-10'
-                                        ml='-5'
+                                        ml='-6'
                                         w='12'
                                     >
                                         {sliderValue}
@@ -472,7 +474,7 @@ const Solver = () => {
                                     onClick={() => setEndAnimation(true)}
                                     bg="linear-gradient(135deg, #ff7c20, #ff4093)"
                                     color={useColorModeValue('white', 'black')}
-                                    _hover={{bg: "linear-gradient(135deg, #ee7c20, #ee4093)"}}
+                                    _hover={{bg: "linear-gradient(135deg, #dd7c20, #dd4093)"}}
                                     colorScheme="transparent"
                                 >Skip animation</Button>
                             </Box>
