@@ -9,9 +9,8 @@ import {
     SliderMark,
     useColorModeValue,
 } from '@chakra-ui/react'
-import { useRef, useLayoutEffect, useEffect, useState } from 'react'
+import { useLayoutEffect, useEffect, useState } from 'react'
 import { Row, Col } from 'react-grid-system'
-import styled from '@emotion/styled'
 import React from "react" 
 
 const Square = (size, num, numSqs, color) => {
@@ -415,12 +414,6 @@ const Lines = (squareSize, sliderVal, num, end) => {
     )
 }
 
-const GradientText = styled.h1`
-    background-image: linear-gradient(135deg, #ff7c20, #ff4093);
-    background-size: 100%;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-`
 const Solver = () => {
     const [endAnimation, setEndAnimation] = useState(false)
 
