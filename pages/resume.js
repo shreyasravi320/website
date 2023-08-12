@@ -58,11 +58,27 @@ const Resume = () => {
                     </Heading>
                     <ul>
                         <li>
-                            <h3><strong>Radix Labs</strong>, Cambridge, MA - <i>Algorithms, Scheduling, and Optimization Engineer</i></h3>
-                            <small><i>May 2022 - Present</i></small>
+                            <h3><strong>Chess.com</strong>, Remote - <i>Software Engineering Intern</i></h3>
+                            <small><i>May 2023 - Present</i></small>
                             <br></br>
 
-                                Developed heuristic-based scheduling algorithms to optimize for time and resource use in biology and chemistry labs.
+                                Created analysis types to detect structurally suboptimal pawn moves and explain the effects in a visual manner for players to easily identify the threats.
+
+                                <br></br>
+                                <br></br>
+                                Refactored the Brilliant move classifier from the ground up to satisfy specific criteria and generate explanations in the Game Review tab for why exactly the played move is Brilliant.
+
+                                <br></br>
+                                <br></br>
+                                Developed a new workflow as part of a research API to scan through a provided user's games to find instances of excellent or brilliant pawn promotions to a knight, bishop, or rook.
+                        </li>
+                        <br/>
+                        <li>
+                            <h3><strong>Radix Labs</strong>, Cambridge, MA - <i>Software Engineering Intern</i></h3>
+                            <small><i>May 2022 - Dec 2022</i></small>
+                            <br></br>
+
+                                Created heuristic-based scheduling algorithms to optimize for time and resource use in biology and chemistry labs.
 
                                 <br></br>
                                 <br></br>
@@ -74,7 +90,7 @@ const Resume = () => {
                         <br></br>
                         <li>
                             <h3><strong>House Fish Balloon</strong>, Saratoga, CA - <i>Game Developer</i></h3>
-                            <small><i>May 2021 - Aug 2021, Dec 2021 - Jan 2022</i></small>
+                            <small><i>May 2021 - Jan 2022</i></small>
                             <br></br>
 
                                 Designed and coded a board game created by the company in C++, Javascript, and Python, incorporating graphs and traversal algorithms.
