@@ -70,7 +70,7 @@ const Resume = () => {
 
                                 <br></br>
                                 <br></br>
-                                Developed a new workflow as part of a research API to scan through a provided user's games to find instances of excellent or brilliant pawn promotions to a knight, bishop, or rook.
+                                Developed a new workflow as part of a research API to scan through a provided user&apos;s games to find instances of excellent or brilliant pawn promotions to a knight, bishop, or rook.
                         </li>
                         <br/>
                         <li>
