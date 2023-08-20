@@ -5,6 +5,12 @@ module.exports = {
             test: /\.svg$/,
             use: ['@svgr/webpack'],
         })
+
+        config.module.rules.push({
+            test: /\.wasm$/,
+            type: 'webassembly/experimental', // or 'webassembly/async' for newer versions
+        })
+
         return config
     }
 }

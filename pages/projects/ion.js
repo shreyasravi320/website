@@ -7,9 +7,9 @@ import Image from "next/image"
 import { useEffect } from 'react'
 import Layout from '../../components/layouts/child'
 
-import IonSVG from "../imgs/ion.svg"
-import IonDemo1 from "../imgs/ionDemo1.gif"
-import IonDiag1 from "../imgs/ionDiag1.svg"
+import IonSVG from "../../public/imgs/ion.svg"
+import IonDemo1 from "../../public/imgs/ionDemo1.gif"
+import IonDiag1 from "../../public/imgs/ionDiag1.svg"
 
 const GradientText = styled.h1`
     background-image: linear-gradient(135deg, #ff7c20, #ff4093);

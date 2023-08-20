@@ -1,7 +1,7 @@
 import NextLink from 'next/link'
 import { Heading, Box, Text, LinkBox, LinkOverlay, useColorModeValue } from '@chakra-ui/react'
 
-import IonSVG from "../pages/imgs/ion.svg"
+import IonSVG from "../public/imgs/ion.svg"
 
 const IonGridItem = ({ textColor, children }) => (
     <Box w="100%" textAlign="center">

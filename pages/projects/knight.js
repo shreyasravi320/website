@@ -8,9 +8,9 @@ import theme from '../../lib/theme'
 import { useEffect } from 'react'
 import Layout from '../../components/layouts/child'
 
-import KnightSVG from "../imgs/knight.svg"
-import KnightDiag from "../imgs/knightDiag.png"
-import KnightDiag2 from "../imgs/knightDiag2.png"
+import KnightSVG from "../../public/imgs/knight.svg"
+import KnightDiag from "../../public/imgs/knightDiag.png"
+import KnightDiag2 from "../../public/imgs/knightDiag2.png"
 
 const GradientText = styled.h1`
     background-image: linear-gradient(135deg, #ff7c20, #ff4093);

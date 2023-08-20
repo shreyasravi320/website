@@ -7,7 +7,7 @@ import Section from '../../components/section'
 import { useEffect } from 'react'
 import Layout from '../../components/layouts/child'
 
-import SlangSVG from "../imgs/slang.svg"
+import SlangSVG from "../../public/imgs/slang.svg"
 
 const GradientText = styled.h1`
     background-image: linear-gradient(135deg, #ff7c20, #ff4093);

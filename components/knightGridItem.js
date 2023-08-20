@@ -1,7 +1,7 @@
 import NextLink from 'next/link'
 import { Heading, Box, Text, LinkBox, LinkOverlay, useColorModeValue } from '@chakra-ui/react'
 
-import KnightSVG from "../pages/imgs/knight.svg"
+import KnightSVG from "../public/imgs/knight.svg"
 
 const KnightGridItem = ({ textColor, children }) => (
     <Box w="100%" textAlign="center">
