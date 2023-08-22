@@ -7,7 +7,7 @@
     "build": "next build",
     "prettier": "prettier --write --ignore-path .gitignore",
     "lint": "next lint",
-    "wasm": "em++ pages/projects/pixcell/hello.cpp -o public/wasm/hello.js -s MODULARIZE -s WASM=1 -s EXPORT_NAME=myModule -s ENVIRONMENT=web -s EXPORTED_FUNCTIONS=[_myWasmFunction] -s EXPORTED_RUNTIME_METHODS=[ccall,cwrap]"
+    "wasm": "cd pixcell-lib; wasm-pack build --target web; cd .."
   },
   "keywords": [],
   "author": "Shreyas Ravi",
@@ -19,6 +19,7 @@
     "@chakra-ui/theme-tools": "^2.0.12",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
+    "@wasm-tool/wasm-pack-plugin": "^1.7.0",
     "babel": "^6.23.0",
     "babel-runtime": "^6.26.0",
     "framer-motion": "^6.5.1",

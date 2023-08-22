@@ -8,7 +8,7 @@ module.exports = {
 
         config.module.rules.push({
             test: /\.wasm$/,
-            type: 'webassembly/experimental', // or 'webassembly/async' for newer versions
+            type: 'asset/resource'
         })
 
         return config
