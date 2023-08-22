@@ -5,5 +5,5 @@ dist
 .vercel
 .env
 compile_flags.*
-pixcell-lib/
-pixcell-lib/
+pixcell-lib/src
+pixcell-lib
