@@ -108,9 +108,9 @@ impl Cell {
         Self::new(0, Direction::NoDir, 0, false, 0)
     }
 
-    pub fn new(color: u64, dir: Direction, trav_time: u64, will_rev: bool, rev_time: u64) -> Cell {
+    pub fn new(color: u32, dir: Direction, trav_time: u64, will_rev: bool, rev_time: u64) -> Cell {
         Cell {
-            genome: (color << COLOR_LSB)
+            genome: ((color as u64) << COLOR_LSB)
                 | (if dir != Direction::NoDir { 1 as u64 } else { 0 as u64 }) << HAS_DIR_LSB
                 | ((dir as u64) << DIR_LSB)
                 | (trav_time << TRAV_TIME_LSB)

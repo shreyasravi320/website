@@ -5,39 +5,40 @@ import React from 'react'
 import initSync, { State } from '../../pixcell-lib/pkg/pixcell_lib'
 
 const MAX_PIXELS = 16384
+const PIXEL_SIZE = 5
 
-const Grid = (state, rows, cols) => {
+const Grid = (pixels, rows, cols) => {
     const canvasRef = useRef(null);
 
-    useEffect(() => {
-        if (state && rows !== 0 && cols !== 0) {
+    useEffect(async () => {
+        if (pixels) {
             const canvas = canvasRef.current;
             const ctx = canvas.getContext('2d');
 
-            const pixelSize = 4;
-
-            canvas.width = cols * pixelSize;
-            canvas.height = rows * pixelSize;
+            canvas.width = cols * PIXEL_SIZE;
+            canvas.height = rows * PIXEL_SIZE;
 
             for (let row = 0; row < rows; row++) {
                 for (let col = 0; col < cols; col++) {
-                    const pixelValue = state.get_color(row, col);
+                    const pixelValue = pixels[row * cols + col];
 
                     const r = (pixelValue & 0xff0000) >> 16;
                     const g = (pixelValue & 0x00ff00) >> 8;
                     const b = pixelValue & 0x0000ff;
+
                     ctx.fillStyle = `rgb(${r},${g},${b})`;
-                    ctx.fillRect(col * pixelSize, row * pixelSize, pixelSize, pixelSize);
+                    ctx.fillRect(col * PIXEL_SIZE, row * PIXEL_SIZE, PIXEL_SIZE, PIXEL_SIZE);
                 }
             }
         }
-    }, [state]);
+    }, [pixels]);
 
-    return <canvas ref={canvasRef} width={cols * 2} height={rows * 2}></canvas>;
+    return <canvas ref={canvasRef} width={cols * PIXEL_SIZE} height={rows * PIXEL_SIZE}></canvas>;
 }
 
 const Sim = () => {
     const [state, setState] = useState(null)
+    const [pixels, setPixels] = useState(null)
     const [rows, setRows] = useState(0)
     const [cols, setCols] = useState(0)
 
@@ -49,7 +50,6 @@ const Sim = () => {
         const file = event.target.files[0];
 
         if (file) {
-
             const img = new Image();
             img.src = URL.createObjectURL(file);
 
@@ -75,7 +75,7 @@ const Sim = () => {
 
                 setRows(canvas.height);
                 setCols(canvas.width);
-                setState(State.new(canvas.height, canvas.width, rgbBuffer, 0x000000));
+                setState(State.new(canvas.height, canvas.width, rgbBuffer, 0xffffff));
             }
         }
     }
@@ -83,17 +83,17 @@ const Sim = () => {
     useEffect(() => {
         const timer = setTimeout(async () => {
             if (state) {
-                console.log("Updated!\n");
                 await state.update();
+                setPixels(await state.get_pixels());
             }
-        }, 500);
+        });
         return () => clearTimeout(timer);
-    }, [state]);
+    }, [state, pixels]);
 
     return (
         <div>
             <input type="file" accept="image/*" onChange={processImageUpload}/>
-            {Grid(state, rows, cols)}
+            {Grid(pixels, rows, cols)}
         </div>
     )
 }
