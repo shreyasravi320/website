@@ -9,6 +9,9 @@
     "lint": "next lint",
     "wasm": "wasm-pack build --target web --out-dir wasm pixcell-lib; mv pixcell-lib/wasm/* public/wasm; rm public/wasm/.gitignore"
   },
+  "engines": {
+      "node": ">=18.0.0"
+  },
   "keywords": [],
   "author": "Shreyas Ravi",
   "license": "MIT",
