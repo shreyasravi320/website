@@ -1,39 +1,47 @@
 import { useEffect, useState, useRef } from 'react'
 import Layout from '../../components/layouts/child';
-import { Container, Box } from '@chakra-ui/react'
+import { Container, Box, useColorModeValue, Center } from '@chakra-ui/react'
 import React from 'react'
-import initSync, { State } from '../../pixcell-lib/pkg/pixcell_lib'
+import initSync, { State } from '../../public/wasm/pixcell_lib'
+
+import ImageSVG from "../../public/imgs/img_icon.svg"
 
 const MAX_PIXELS = 16384
-const PIXEL_SIZE = 5
 
-const Grid = (pixels, rows, cols) => {
+const Grid = (pixels, rows, cols, width, height, bg) => {
     const canvasRef = useRef(null);
+    const pixelSize = Math.min(Math.max(1, height < width ? Math.floor(0.85 * height / rows) : Math.floor(0.85 * width / cols)), 5);
 
-    useEffect(async () => {
-        if (pixels) {
-            const canvas = canvasRef.current;
-            const ctx = canvas.getContext('2d');
+    useEffect(() => {
+        async () => {
+            if (pixels) {
+                const canvas = canvasRef.current;
+                const ctx = canvas.getContext('2d');
 
-            canvas.width = cols * PIXEL_SIZE;
-            canvas.height = rows * PIXEL_SIZE;
+                canvas.width = cols * pixelSize;
+                canvas.height = rows * pixelSize;
 
-            for (let row = 0; row < rows; row++) {
-                for (let col = 0; col < cols; col++) {
-                    const pixelValue = pixels[row * cols + col];
+                for (let row = 0; row < rows; row++) {
+                    for (let col = 0; col < cols; col++) {
+                        const pixelValue = pixels[row * cols + col];
 
-                    const r = (pixelValue & 0xff0000) >> 16;
-                    const g = (pixelValue & 0x00ff00) >> 8;
-                    const b = pixelValue & 0x0000ff;
+                        if (pixelValue == 0x1000000) {
+                            ctx.fillStyle = bg;
+                        } else {
+                            const r = (pixelValue & 0xff0000) >> 16;
+                            const g = (pixelValue & 0x00ff00) >> 8;
+                            const b = pixelValue & 0x0000ff;
 
-                    ctx.fillStyle = `rgb(${r},${g},${b})`;
-                    ctx.fillRect(col * PIXEL_SIZE, row * PIXEL_SIZE, PIXEL_SIZE, PIXEL_SIZE);
+                            ctx.fillStyle = `rgb(${r},${g},${b})`;
+                        }
+                        ctx.fillRect(col * pixelSize, row * pixelSize, pixelSize, pixelSize);
+                    }
                 }
             }
         }
-    }, [pixels]);
+    }, [pixels, rows, cols, bg, pixelSize]);
 
-    return <canvas ref={canvasRef} width={cols * PIXEL_SIZE} height={rows * PIXEL_SIZE}></canvas>;
+    return <canvas ref={canvasRef} width="auto" height="100%"></canvas>;
 }
 
 const Sim = () => {
@@ -41,14 +49,18 @@ const Sim = () => {
     const [pixels, setPixels] = useState(null)
     const [rows, setRows] = useState(0)
     const [cols, setCols] = useState(0)
+    const containerRef = useRef(null);
+    const [height, setHeight] = useState(0)
+    const [width, setWidth] = useState(0)
 
-    useEffect(async () => {
-        await initSync();
+    useEffect(() => {
+        async () => {
+            await initSync();
+        }
     }, [])
 
     const processImageUpload = async (event) => {
         const file = event.target.files[0];
-
         if (file) {
             const img = new Image();
             img.src = URL.createObjectURL(file);
@@ -75,10 +87,15 @@ const Sim = () => {
 
                 setRows(canvas.height);
                 setCols(canvas.width);
-                setState(State.new(canvas.height, canvas.width, rgbBuffer, 0xffffff));
+                setState(State.new(canvas.height, canvas.width, rgbBuffer));
             }
         }
     }
+
+    useEffect(() => {
+        setHeight(window.innerHeight - document.querySelector('.pixcell').getBoundingClientRect().top - window.scrollY)
+        setWidth(window.innerWidth - document.querySelector('.pixcell').getBoundingClientRect().left - window.scrollX)
+    }, [])
 
     useEffect(() => {
         const timer = setTimeout(async () => {
@@ -88,13 +105,46 @@ const Sim = () => {
             }
         });
         return () => clearTimeout(timer);
-    }, [state, pixels]);
+    }, [state, pixels, rows, cols]);
 
     return (
-        <div>
-            <input type="file" accept="image/*" onChange={processImageUpload}/>
-            {Grid(pixels, rows, cols)}
-        </div>
+        <Container className="pixcell" ref={containerRef} maxW="container.md">
+            <Center
+                className="img-input"
+                style={{
+                    display: "block",
+                    border: "2px dashed #afafaf",
+                    borderRadius: 12,
+                    position: "relative",
+                    padding: "10%",
+                }}
+            >
+                <Center display="grid">
+                    <Center>
+                        <ImageSVG fill={useColorModeValue('black', 'white')} width="30%" height="30%"/>
+                    </Center>
+                    Drag and drop or Click to upload your image
+                </Center>
+                <input
+                    style={{
+                        opacity: 0,
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        width: "100%",
+                        height: "100%",
+                        cursor: "pointer",
+                    }}
+                    type="file"
+                    accept="image/*"
+                    onChange={processImageUpload}
+                >
+                </input>
+            </Center>
+            <Center mt={6}>
+                {Grid(pixels, rows, cols, width, height, useColorModeValue('white', 'black'))}
+            </Center>
+        </Container>
     )
 }
 

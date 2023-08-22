@@ -358,7 +358,7 @@ const Lines = (squareSize, sliderVal, num, end) => {
         
             return () => clearTimeout(timer)
         }
-    }, [linesToDraw, num])
+    }, [linesToDraw, num, sliderVal, end])
 
     useEffect(() => {
         setLinesToDraw(0);

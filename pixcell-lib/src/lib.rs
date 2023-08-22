@@ -19,16 +19,17 @@ const GREEN: u32 = 0x00ff00;
 const BLUE: u32 = 0x0000ff;
 const WHITE: u32 = 0xffffff;
 
-const STEPS_PER_GEN: u64 = 5;
-const NEW_GEN_SIZE: u64 = 20000;
+const STEPS_PER_GEN: u64 = 1;
+const NEW_GEN_SIZE: u64 = 2000;
 const MAX_OFFSPRING: u64 = 4;
-const MAX_AGE: u64 = 31;
+const MAX_AGE: u64 = 15;
 const SIGMOID_FACTOR: f64 = 7.0;
-const FITNESS_THRESH: f64 = 0.97;
+const FITNESS_THRESH: f64 = 0.935;
 const SEARCH_RADIUS: u64 = 1;
 const MATING_RADIUS: u64 = 16;
 const WEIGHT: u64 = 8;
 const MUTATION_ODDS: u64 = 10000;
+const NO_COLOR: u32 = 0x1000000;
 
 #[wasm_bindgen]
 extern "C" {
@@ -40,7 +41,6 @@ extern "C" {
 pub struct State {
     step: u64,
     generation: u64,
-    background: u32,
     cells: Vec<Vec<Option<Cell>>>,
     visited: Vec<Vec<bool>>,
     survivors: HashSet<(usize, usize)>,
@@ -52,8 +52,7 @@ impl State {
     pub fn default() -> State {
         State {
             step: 0,
-            generation: 0,
-            background: 0,
+            generation: 1,
             cells: Vec::new(),
             visited: Vec::new(),
             survivors: HashSet::new(),
@@ -61,7 +60,7 @@ impl State {
         }
     }
 
-    pub fn new(rows: usize, cols: usize, data: Vec<u8>, bg: u32) -> State {
+    pub fn new(rows: usize, cols: usize, data: Vec<u8>) -> State {
         let mut img: Vec<Vec<u32>> = vec![vec![0; cols]; rows];
 
         for i in 0..rows {
@@ -73,8 +72,7 @@ impl State {
 
         State {
             step: 0,
-            generation: 0,
-            background: bg,
+            generation: 1,
             cells: vec![vec![None; cols]; rows],
             visited: vec![vec![false; cols]; rows],
             survivors: HashSet::new(),
@@ -90,7 +88,7 @@ impl State {
                 if self.cells[i][j].is_some() {
                     pixels[i * self.cells[0].len() + j] = self.cells[i][j].unwrap().get_color();
                 } else {
-                    pixels[i * self.cells[0].len() + j] = self.background;
+                    pixels[i * self.cells[0].len() + j] = NO_COLOR;
                 }
             }
         }
@@ -101,12 +99,12 @@ impl State {
         if self.cells[row][col].is_some() {
             self.cells[row][col].unwrap().get_color()
         } else {
-            self.background
+            NO_COLOR
         }
     }
 
     pub fn update(&mut self) {
-        if self.generation == 2500 { return }
+        if self.generation == 2000 { return }
         self.generation += 1;
         self.new_gen();
 
@@ -141,7 +139,7 @@ impl State {
             col = rng.gen_range(0..self.cells[0].len());
 
             if self.cells[row][col].is_none() {
-                if (i as f64) < 2000.0 / (1.0 + (-0.008 * ((self.generation as f64) - 1500.0)).exp()) {
+                if (i as f64) < 2000.0 / (1.0 + (-0.009 * ((self.generation as f64) - 1200.0)).exp()) {
                     color = self.img_data[row][col];
                 } else {
                     color = rng.gen_range(0..=WHITE);
@@ -363,13 +361,17 @@ impl State {
 }
 
 fn weighted_avg_color(c1: u32, w1: u32, c2: u32, w2: u32) -> u32 {
-    (w1 * c1 + w2 * c2) / (w1 + w2)
+    let r: u32 = (w1 * ((c1 & RED) >> 16) + w2 * ((c2 & RED) >> 16)) / (w1 + w2);
+    let g: u32 = (w1 * ((c1 & GREEN) >> 8) + w2 * ((c2 & GREEN) >> 8)) / (w1 + w2);
+    let b: u32 = (w1 * (c1 & BLUE) + w2 * (c2 & BLUE)) / (w1 + w2);
+
+    r << 16 | g << 8 | b
 }
 
 fn compute_color_dist(c1: u32, c2: u32) -> f64 {
     (((((c1 & RED) >> 16) - ((c2 & RED) >> 16)) as f64).powf(2.0) +
     ((((c1 & GREEN) >> 8) - ((c2 & GREEN) >> 8)) as f64).powf(2.0) +
-    (((c1 & BLUE) - (c2 & BLUE)) as f64).powf(2.0)).sqrt()
+    (((c1 & BLUE) - (c2 & BLUE)) as f64).powf(2.0)).sqrt() / 255.0
 }
 
 fn sigmoid(x: f64) -> f64 {

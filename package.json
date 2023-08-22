@@ -7,7 +7,7 @@
     "build": "next build",
     "prettier": "prettier --write --ignore-path .gitignore",
     "lint": "next lint",
-    "wasm": "cd pixcell-lib; wasm-pack build --target web; cd .."
+    "wasm": "wasm-pack build --target web --out-dir wasm pixcell-lib; mv pixcell-lib/wasm/* public/wasm; rm public/wasm/.gitignore"
   },
   "keywords": [],
   "author": "Shreyas Ravi",
@@ -27,6 +27,7 @@
     "next": "^12.3.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-dropzone": "^14.2.3",
     "react-grid-system": "^8.1.6",
     "react-latex": "^2.0.0",
     "react-router-dom": "^6.2.2",

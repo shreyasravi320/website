@@ -1,1 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap');
+
+.img-input:hover,
+.img-input.dragover {
+    opacity: 0.5;
+}

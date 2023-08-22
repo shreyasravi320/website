@@ -40,7 +40,7 @@ const KnightTour = () =>
                 </Box>
 
                 <Section delay={0.2}>
-                    <KnightSVG fill={useColorModeValue("black", "white")}/>
+                    <KnightSVG/>
                 </Section>
 
                 <Section delay={0.5}>

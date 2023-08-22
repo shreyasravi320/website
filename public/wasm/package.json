@@ -1,0 +1,14 @@
+{
+  "name": "pixcell-lib",
+  "version": "0.1.0",
+  "files": [
+    "pixcell_lib_bg.wasm",
+    "pixcell_lib.js",
+    "pixcell_lib.d.ts"
+  ],
+  "module": "pixcell_lib.js",
+  "types": "pixcell_lib.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
