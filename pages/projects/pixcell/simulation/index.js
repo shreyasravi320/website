@@ -105,7 +105,7 @@ const Sim = () => {
                 await state.update();
                 setPixels(await state.get_pixels());
             }
-        });
+        }, 1);
         return () => clearTimeout(timer);
     }, [state, pixels, rows, cols]);
 
@@ -152,10 +152,6 @@ const Sim = () => {
 
 const Simulation = () =>
 {
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    });
-
     return (
         <Layout>
             <Container maxW="container.md">
