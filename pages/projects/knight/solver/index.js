@@ -16,17 +16,17 @@ import React from "react"
 const Square = (size, num, numSqs, color) => {
     return (
         <div
-          style={{
-            borderStyle: "solid",
-            borderWidth: 1,
-            alignItems: "center",
-            justifyContent: "center",
-            padding: 0,
-            width: size,
-            height: size,
-            backgroundColor: color
-          }}
-          id={`${numSqs}-sq${num}`}
+            style={{
+                borderStyle: "solid",
+                borderWidth: 1,
+                alignItems: "center",
+                justifyContent: "center",
+                padding: 0,
+                width: size,
+                height: size,
+                backgroundColor: color
+            }}
+            id={`${numSqs}-sq${num}`}
         ></div>
     )
 }
@@ -344,18 +344,18 @@ const boards = [
 
 const Lines = (squareSize, sliderVal, num, end) => {
     const [linesToDraw, setLinesToDraw] = useState(0)
-    
+
     useEffect(() => {
         if (end)
-        {
+    {
             setLinesToDraw(num)
         }
         else if (!end && linesToDraw < num)
-        {
+    {
             const timer = setTimeout(() => {
                 setLinesToDraw(linesToDraw + 1)
             }, sliderVal < 12 ? 100 : sliderVal < 24 ? 50 : 0)
-        
+
             return () => clearTimeout(timer)
         }
     }, [linesToDraw, num, sliderVal, end])
@@ -366,7 +366,7 @@ const Lines = (squareSize, sliderVal, num, end) => {
 
     const lines = []
     for (let i = 0; i < linesToDraw; i++)
-    {
+{
         lines.push(
             <Xarrow
                 key={i}
@@ -384,27 +384,27 @@ const Lines = (squareSize, sliderVal, num, end) => {
     }
 
     const board = 
-    <Box
-        className="squares"
-        style={{
-            display: "flex",
-            flexWrap: "wrap",
-            flex: 1,
-            justifyContent: "center",
-            alignContent: "center",
-            gap: 0,
-        }}
-    >{boards[(sliderVal - 6) / 2].map((cell) =>
-        <Row key={cell} align="center">{cell.map((number) =>
-            <Col key={number} style={{ padding: 0 }}>
-                {Square(
-                    squareSize,
-                    number,
-                    sliderVal ** 2,
-                    number <= linesToDraw ? '#63636363' : null)}
-            </Col>)}
-        </Row>)}
-    </Box>
+        <Box
+            className="squares"
+            style={{
+                display: "flex",
+                flexWrap: "wrap",
+                flex: 1,
+                justifyContent: "center",
+                alignContent: "center",
+                gap: 0,
+            }}
+        >{boards[(sliderVal - 6) / 2].map((cell) =>
+                <Row key={cell} align="center">{cell.map((number) =>
+                    <Col key={number} style={{ padding: 0 }}>
+                        {Square(
+                            squareSize,
+                            number,
+                            sliderVal ** 2,
+                            number <= linesToDraw ? '#63636363' : null)}
+                    </Col>)}
+                </Row>)}
+        </Box>
 
     return (
         <div>
@@ -435,7 +435,7 @@ const Solver = () => {
 
         updateSquareSize()
         window.addEventListener('resize', updateSquareSize)
-    
+
         return () => {
             window.removeEventListener('resize', updateSquareSize)
         }
@@ -444,17 +444,6 @@ const Solver = () => {
     return (
         <Layout>
             <Container maxW="container.md">
-                {/* <Box display={{md:"flex"}} mt={6}>
-                    <Box flexGrow={1}>
-                        <GradientText>
-                            <Heading
-                                variant="section-title"
-                            >
-                                Drag the slider below to see different knight&apos;s tours
-                            </Heading>
-                        </GradientText>
-                    </Box>
-                </Box> */}
                 <Box display={{ md: "flex" }} mt={6}>
                     <Stack spacing={5}>
                         <Xwrapper>

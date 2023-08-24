@@ -1,4 +1,4 @@
-import { Heading, Container, Box, Button, useColorModeValue } from '@chakra-ui/react'
+import { Heading, Container, Box, Button, Center, useColorModeValue } from '@chakra-ui/react'
 import NextLink from "next/link"
 import Image from "next/image"
 import Section from '../../components/section'
@@ -14,7 +14,7 @@ const KnightTour = () =>
 {
     return (
         <Layout>
-            <Container maxW="container.md">
+            <Container maxW="container.lg">
                 <Box display={{md:"flex"}} mt={6}>
                     <Box flexGrow={1}>
                         <Heading
@@ -82,43 +82,35 @@ const KnightTour = () =>
 
                     <br></br>
                     <br></br>
-                    <Section delay={1.1}>
-                        <Image src={KnightDiag} layout="responsive"/>
-                        <figure style={{textAlign: "center"}}><i><small>KnightTour on a 12 x 12 board by generating four 6 x 6 tours and merging them</small></i></figure>
+                </Section>
+                <Section delay={1.1}>
+                    <Image src={KnightDiag} layout="responsive"/>
+                    <figure style={{textAlign: "center"}}><i><small>KnightTour on a 12 x 12 board by generating four 6 x 6 tours and merging them</small></i></figure>
+                    <br/>
+                    <br/>
 
-                        <br></br>
-                        <link
-                            href="//cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0/katex.min.css"
-                            rel="stylesheet"
-                        />
-                        The algorithm works for a couple reasons:
-                        <ol style={{paddingLeft: "10%"}}>
-                            <li style={{marginTop: "2%"}}>
-                                <Latex>
-                                    Any $n \times n$ board can be broken up in to some combination of $6 \times 6$, $6 \times 8$, $8 \times 8$, $8 \times 10$, $10 \times 10$, and $10 \times 12$ boards.
-                                </Latex> A proof is presented <a href="https://github.com/shreyasravi320/KnightTour/blob/main/KnightTour.pdf" target="_blank" rel="noreferrer" style={{color: theme.colors.linkBlue, textDecoration: "underline"}}>here</a> as part of the KnightTour GitHub repo.
-                            </li>
-                            <li style={{marginTop: "2%"}}>
-                                The merging process of the four subsections can be done in constant time since we only have to look at the region of 48 squares that allow for a knight to jump from section to section. Since the knight&apos;s movement edges are always the same size (2 squares in 1 direction, 1 square in another perpendicular direction), there are a finite number of vertex pairs that allow for a jump between sections.
-                                <br></br>
-                                <br></br>
+                    <Heading
+                        as="h3"
+                        variant="section-title"
+                    >
+                        Why this works
+                    </Heading>
+                    <ol>
+                        <li>We can solve tours relatively quickly for 6 by 6, 8 by 8, and 10 by 10 <i>square</i> boards, as well as 6 by 8, 8 by 10, and 10 by 12 <i>rectangular</i> boards.</li>
+                        <li>Any even-sized board length greater than or equal to 12 can be divided into some arrangement of smaller solvable boards. I wrote a proof for this <a href="https://github.com/shreyasravi320/KnightTour/blob/main/KnightTour.pdf" target="_blank" rel="noreferrer" style={{color: theme.colors.linkBlue, textDecoration: "underline"}}>here</a>, although with a little bit of thinking you can easily come to this conclusion.</li>
+                        <li>As the knight <strong>has</strong> to move in an L-shape, there is a region between 4 completed tours that allows the knight to find a path from the top left board, to the top right, to the bottom right, to the bottom left, and back to the top left. This ensures that any 4 completed tours can be merged together be reorienting 4 edges of the graph.
+
+                            <br/>
+                            <br/>
+                            <Center
+                                width="50%"
+                                height="50%"
+                                ml="25%"
+                            >
                                 <Image src={KnightDiag2} layout="responsive"/>
-                            </li>
-                            <li style={{marginTop: "2%"}}>
-                                <Latex>
-                                    A complete tour is impossible on a board where $n$ is odd, since there will be an odd number of squares. One property of the knight the color of the square it jumps to always switches on each move. If we have an odd number of squares, we cannot come back to the starting square since the last vertex in the tour will be the same color as the starting vertex.
-                                </Latex>
-                            </li>
-                        </ol>
-
-                        <br></br>
-                        <Latex displayMode={true}>
-                            Using these properties, we are able to efficiently solve the KnightTour problem in polynomial time. In particular, the recurrence describing this problem is $$T(n^2) = 4T(n^2/4) + \Theta(1) = \Theta(n^2)$$
-                        </Latex>
-                        <Latex>
-                            since we divide the board as evenly into four pieces as possible and perform constant work computing the 4 edges to join the sections. Ultimately, KnightTour runs in linear time in terms of the number of squares on the board.
-                        </Latex>
-                    </Section>
+                            </Center>
+                        </li>
+                    </ol>
                 </Section>
             </Container>
         </Layout>

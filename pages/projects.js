@@ -15,7 +15,7 @@ const Projects = () => {
     const [isAnyFocused, setIsAnyFocused] = useState(false)
     return (
         <Layout>
-            <Container maxW="container.md">
+            <Container maxW="container.lg">
                 <Box display={{md:"flex"}} mt={6}>
                     <Box flexGrow={1}>
                         <Heading variant="page-title">
