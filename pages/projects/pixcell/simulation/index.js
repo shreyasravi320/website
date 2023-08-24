@@ -6,7 +6,7 @@ import initSync, { State } from '../../../../public/wasm/pixcell_lib'
 
 import ImageSVG from "../../../../public/imgs/img_icon.svg"
 
-const MAX_PIXELS = 16384
+const MAX_PIXELS = 20480
 
 const Grid = (pixels, rows, cols, width, height, bg) => {
     const canvasRef = useRef(null);

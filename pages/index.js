@@ -1,11 +1,8 @@
 import { Box, Container, Heading, useColorModeValue } from "@chakra-ui/react"
 import Section from "../components/section"
 import Layout from '../components/layouts/child'
-import theme from "../lib/theme"
 
 const Page = () => {
-    console.log(theme.sizes)
-
     return (
         <Layout>
             <Container maxW="container.lg">
