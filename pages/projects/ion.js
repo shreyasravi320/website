@@ -1,41 +1,26 @@
-import { Heading, Container, Box } from '@chakra-ui/react'
+import { Heading, Container, Box, Center } from '@chakra-ui/react'
 import { useColorModeValue } from '@chakra-ui/react'
-import styled from '@emotion/styled'
 import Section from '../../components/section'
 import theme from '../../lib/theme'
 import Image from "next/image"
-import { useEffect } from 'react'
 import Layout from '../../components/layouts/child'
 
 import IonSVG from "../../public/imgs/ion.svg"
 import IonDemo1 from "../../public/imgs/ionDemo1.gif"
 import IonDiag1 from "../../public/imgs/ionDiag1.svg"
 
-const GradientText = styled.h1`
-    background-image: linear-gradient(135deg, #ff7c20, #ff4093);
-    background-size: 35%;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-`
-
 const Ion = () =>
 {
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    });
-
     return (
         <Layout>
             <Container maxW="container.md">
                 <Box display={{md:"flex"}} mt={6}>
                     <Box flexGrow={1}>
-                        <GradientText>
-                            <Heading
-                                variant="page-title"
-                            >
+                        <Heading variant="page-title">
+                            <div className="projects-gradient-text">
                                 Ion
-                            </Heading>
-                        </GradientText>
+                            </div>
+                        </Heading>
                     </Box>
                 </Box>
 
@@ -53,7 +38,7 @@ const Ion = () =>
                     For any given position in a game of chess, compute the best move for the next player.
                 </Section>
                 <Section delay={0.8}>
-                <Heading
+                    <Heading
                         as="h3"
                         variant="section-title"
                     >

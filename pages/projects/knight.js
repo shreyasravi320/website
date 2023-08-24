@@ -1,46 +1,34 @@
 import { Heading, Container, Box, Button, useColorModeValue } from '@chakra-ui/react'
 import NextLink from "next/link"
 import Image from "next/image"
-import styled from '@emotion/styled'
 import Section from '../../components/section'
 import Latex from 'react-latex'
 import theme from '../../lib/theme'
-import { useEffect } from 'react'
 import Layout from '../../components/layouts/child'
 
 import KnightSVG from "../../public/imgs/knight.svg"
 import KnightDiag from "../../public/imgs/knightDiag.png"
 import KnightDiag2 from "../../public/imgs/knightDiag2.png"
 
-const GradientText = styled.h1`
-    background-image: linear-gradient(135deg, #ff7c20, #ff4093);
-    background-size: 55%;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-`
 const KnightTour = () =>
 {
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    });
-
     return (
         <Layout>
             <Container maxW="container.md">
                 <Box display={{md:"flex"}} mt={6}>
                     <Box flexGrow={1}>
-                        <GradientText>
-                            <Heading
-                                variant="page-title"
-                            >
+                        <Heading
+                            variant="page-title"
+                        >
+                            <div className="projects-gradient-text">
                                 KnightTour
-                            </Heading>
-                        </GradientText>
+                            </div>
+                        </Heading>
                     </Box>
                 </Box>
 
                 <Section delay={0.2}>
-                    <KnightSVG/>
+                    <KnightSVG fill={useColorModeValue("black", "white")}/>
                 </Section>
 
                 <Section delay={0.5}>

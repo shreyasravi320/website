@@ -4,3 +4,38 @@
 .img-input.dragover {
     opacity: 0.5;
 }
+
+.animated-gradient-text {
+    display: inline-block;
+    background-image: linear-gradient(135deg, #79c2ff, #579fdd);
+    background-size: auto 100%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: grad 6s ease-in-out infinite;
+}
+
+@keyframes grad {
+from {
+    -webkit-filter: hue-rotate(0deg);
+} to {
+    -webkit-filter: hue-rotate(360deg);
+}
+}
+
+.projects-gradient-text {
+    display: inline-block;
+    background-image: linear-gradient(135deg, #ff7c20, #ff4093);
+    background-size: auto 100%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.resume-gradient-text {
+    display: inline-block;
+    background-image: linear-gradient(135deg, #03fc88, #0394fc);
+    background-size: auto 100%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+

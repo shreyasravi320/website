@@ -1,61 +1,60 @@
-import { Box, Container, Heading, SimpleGrid } from "@chakra-ui/react"
+import { Box, Container, Heading, SimpleGrid, useColorModeValue } from "@chakra-ui/react"
 import Section from "../components/section"
-import styled from "@emotion/styled"
 import theme from "../lib/theme"
-import { useEffect } from 'react'
 import Layout from '../components/layouts/child'
+import { useState } from "react"
 
-import KnightGridItem from "../components/knightGridItem"
-import IonGridItem from "../components/ionGridItem"
-import SlangGridItem from "../components/slangGridItem"
-import AllegroGridItem from "../components/allegroGridItem"
+import PixcellSVG from "../public/imgs/pixcell.svg"
+import KnightSVG from "../public/imgs/knight.svg"
+import IonSVG from "../public/imgs/ion.svg"
+import SlangSVG from "../public/imgs/slang.svg"
 
-const GradientText = styled.h1`
-    background-image: linear-gradient(135deg, #ff7c20, #ff4093);
-    background-size: 18em;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-`
+import { GridItem, GridItemTitle } from "../components/gridItem"
 
 const Projects = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    });
-
+    const [isAnyFocused, setIsAnyFocused] = useState(false)
     return (
         <Layout>
             <Container maxW="container.md">
                 <Box display={{md:"flex"}} mt={6}>
                     <Box flexGrow={1}>
-                        <GradientText>
-                            <Heading variant="page-title">
+                        <Heading variant="page-title">
+                            <div className="projects-gradient-text">
                                 Projects
-                            </Heading>
-                        </GradientText>
+                            </div>
+                        </Heading>
                     </Box>
                 </Box>
                 <br></br>
 
-                <SimpleGrid columns={[1, 1, 2]} gap={"5vw"}>
+                <SimpleGrid columns={[1, 1, 2]} gap={"4vw"}>
                     <Section delay={0.2}>
-                        <KnightGridItem textColor="#ff7878">
-                            A solver that finds a cyclical path a knight can take on an arbitrarily-sized chessboard such that each square is touched exactly once.
-                        </KnightGridItem>
+                        <GridItem href="/projects/pixcell" isAnyFocused={isAnyFocused} setIsAnyFocused={setIsAnyFocused}>
+                            <PixcellSVG fill={useColorModeValue("black", "white")}/>
+                            <GridItemTitle textColor="#ff7878">PixCell</GridItemTitle>
+                            An evolution simulation where pixels evolve over time to mimic a target image&apos;s colors via survival-oriented genome adaptation.
+                        </GridItem>
                     </Section>
                     <Section delay={0.2}>
-                        <SlangGridItem textColor="#ff8877">
+                        <GridItem href="/projects/knight" isAnyFocused={isAnyFocused} setIsAnyFocused={setIsAnyFocused}>
+                            <KnightSVG fill={useColorModeValue("black", "white")}/>
+                            <GridItemTitle textColor="#ff8877">KnightTour</GridItemTitle>
+                            A solver that finds a cyclical path a knight can take on a chessboard of arbitrary size, touching every square exactly once.
+                        </GridItem>
+                    </Section>
+                    <Section delay={0.5}>
+                        <GridItem href="/projects/slang" isAnyFocused={isAnyFocused} setIsAnyFocused={setIsAnyFocused}>
+                            <SlangSVG fill={useColorModeValue("black", "white")}/>
+                            <GridItemTitle textColor="#ff6c69">Slang</GridItemTitle>
                             A compiler for a custom programming language that offers easy to type Python-like syntax and runtime performance on par with C and C++.
-                        </SlangGridItem>
+                        </GridItem>
                     </Section>
                     <Section delay={0.5}>
-                        <IonGridItem textColor="#ff6c69">
+                        <GridItem href="/projects/ion" isAnyFocused={isAnyFocused} setIsAnyFocused={setIsAnyFocused}>
+                            <IonSVG fill={useColorModeValue("black", "white")}/>
+                            <GridItemTitle textColor="#ff6181">Ion</GridItemTitle>
                             A web-hosted chess engine that can find the optimal move in any given position in under 1.5 seconds by looking at least 12 moves in the future.
-                        </IonGridItem>
-                    </Section>
-                    <Section delay={0.5}>
-                        <AllegroGridItem textColor="#ff6181">
-                            A 3D animation software that creates motion graphics with only a sentence as a given input, using natural language processing and machine-learning models.
-                        </AllegroGridItem>
+                        </GridItem>
                     </Section>
                 </SimpleGrid>
 

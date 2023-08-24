@@ -1,37 +1,10 @@
 import { Box, Container, Heading, useColorModeValue } from "@chakra-ui/react"
-import styled from "@emotion/styled"
-import { keyframes } from "@emotion/react"
 import Section from "../components/section"
 import { useEffect } from 'react'
-// import Typist from "react-typist"
 import Layout from '../components/layouts/child'
 
-const gradient = keyframes`
-from {
-    -webkit-filter: hue-rotate(0deg);
-}
-to {
-    -webkit-filter: hue-rotate(360deg);
-}
-`
-// 135deg straight
-const AnimatedGradientText = styled.h1`
-    background-image: linear-gradient(135deg, #79c2ff, #4a5888);
-    background-size: 300%;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-animation: ${gradient} 6s ease-in-out infinite;
-`
-
 let mounted = false;
-// let text = <Typist startDelay={1000} avgTypingDelay={120} cursor={{hideWhenDone: true, hideWhenDoneDelay: 2400, blink: true}}>Hi, <Typist.Delay ms={250}/> I&apos;m <Typist.Delay ms={50}/> Shreyas</Typist>;
-
 const Page = () => {
-
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    });
-
     useEffect(() => {
         mounted = true;
     }, []);
@@ -41,14 +14,10 @@ const Page = () => {
             <Container maxW="container.md">
                 <Box display={{md:"flex"}} mt={6} align="left">
                     <Box flexGrow={1}>
-                        <Heading as="h2" variant="page-title">
-                            {/*<AnimatedGradientText>{text}</AnimatedGradientText>*/}
-                            <AnimatedGradientText>Hi, I&apos;m Shreyas</AnimatedGradientText>
-                                {/*<Typist startDelay={1000} avgTypingDelay={120}
-                                    cursor={{hideWhenDone: true, hideWhenDoneDelay: 2400, blink: true}}>
-                                    Hi, <Typist.Delay ms={250}/> I&apos;m <Typist.Delay ms={50}/> Shreyas
-                                </Typist>
-                                Hi, I&apos;m Shreyas*/}
+                        <Heading variant="page-title">
+                            <div className="animated-gradient-text">
+                                Hi, I&apos;m Shreyas
+                            </div>
                         </Heading>
                     </Box>
                 </Box>
@@ -60,7 +29,6 @@ const Page = () => {
                 </Section>
 
                 <Section delay={(mounted ? 0.3 : 0.3)}>
-                    {/*<Face1SVG style={{height: "20vw" }} fill={useColorModeValue("black", "white")}/>*/}
                     <Heading
                         as="h3"
                         variant="section-title"

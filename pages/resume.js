@@ -1,31 +1,18 @@
 import { Box, Container, Heading, useColorModeValue } from "@chakra-ui/react"
-import styled from "@emotion/styled"
 import Section from "../components/section"
-import { useEffect } from 'react'
 import Layout from '../components/layouts/child'
 
-const GradientText = styled.h1`
-    background-image: linear-gradient(135deg, #03fc88, #0394fc);
-    background-size: 18em;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-`
-
 const Resume = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    })
-
     return (
         <Layout>
             <Container maxW="container.md">
                 <Box display={{md:"flex"}} mt={6}>
                     <Box flexGrow={1}>
-                        <GradientText>
-                            <Heading variant="page-title">
+                        <Heading variant="page-title">
+                            <div className="resume-gradient-text">
                                 Resume
-                            </Heading>
-                        </GradientText>
+                            </div>
+                        </Heading>
                     </Box>
                 </Box>
 
@@ -43,7 +30,7 @@ const Resume = () => {
                             <h3><strong>Tufts University</strong>, Medford, MA</h3>
                             <small><i>Sep 2021 - Present</i></small>
                             <br></br>
-                            Expecting a Bachelor of Science in Computer Science by May 2025
+                            Expecting a Bachelor of Science in Computer Science by December 2024
                         </li>
                     </ul>
                 </Section>
@@ -62,15 +49,15 @@ const Resume = () => {
                             <small><i>May 2023 - Present</i></small>
                             <br></br>
 
-                                Created analysis types to detect structurally suboptimal pawn moves and explain the effects in a visual manner for players to easily identify the threats.
+                            Created analysis types to detect structurally suboptimal pawn moves and explain the effects in a visual manner for players to easily identify the threats.
 
-                                <br></br>
-                                <br></br>
-                                Refactored the Brilliant move classifier from the ground up to satisfy specific criteria and generate explanations in the Game Review tab for why exactly the played move is Brilliant.
+                            <br></br>
+                            <br></br>
+                            Refactored the Brilliant move classifier from the ground up to satisfy specific criteria and generate easy to understand explanations for why exactly the move is Brilliant.
 
-                                <br></br>
-                                <br></br>
-                                Developed a new workflow as part of a research API to scan through a provided user&apos;s games to find instances of excellent or brilliant pawn promotions to a knight, bishop, or rook.
+                            <br></br>
+                            <br></br>
+                            Developed a new workflow as part of a research API to scan through a provided user&apos;s games to find instances of excellent or brilliant pawn promotions to a knight, bishop, or rook.
                         </li>
                         <br/>
                         <li>
@@ -78,14 +65,14 @@ const Resume = () => {
                             <small><i>May 2022 - Dec 2022</i></small>
                             <br></br>
 
-                                Created heuristic-based scheduling algorithms to optimize for time and resource use in biology and chemistry labs.
+                            Created heuristic-based scheduling algorithms to optimize for time and resource use in biology and chemistry labs.
 
-                                <br></br>
-                                <br></br>
-                                Automated part of a CI/CD framework to mount a client machine onto a server, which would be used to compile, run, and push code to all other connected devices.
-                                <br></br>
-                                <br></br>
-                                Serialized algorithms to provide seamless distribution of necessary services to client machines and robots.
+                            <br></br>
+                            <br></br>
+                            Automated part of a CI/CD framework to mount a client machine onto a server, which would be used to compile, run, and push code to all other connected devices.
+                            <br></br>
+                            <br></br>
+                            Serialized algorithms to provide seamless distribution of necessary services to client machines and robots.
                         </li>
                         <br></br>
                         <li>
@@ -93,16 +80,16 @@ const Resume = () => {
                             <small><i>May 2021 - Jan 2022</i></small>
                             <br></br>
 
-                                Designed and coded a board game created by the company in C++, Javascript, and Python, incorporating graphs and traversal algorithms.
-                                <br></br>
-                                <br></br>
-                                Implemented and optimized a custom AI that looks at 8-9 moves in the future in under a second and selects the best outcome for itself.
-                                <br></br>
-                                <br></br>
-                                Created a second AI based on DeepMind&apos;s AlphaZero paper, consisting of multiple neural networks that teach the AI how to win through self play.
-                                <br></br>
-                                <br></br>
-                                Experimented with ReactJS and Firebase to create an online multiplayer version of the game.
+                            Designed and coded a board game created by the company in C++, Javascript, and Python, incorporating graphs and traversal algorithms.
+                            <br></br>
+                            <br></br>
+                            Implemented and optimized a custom AI that looks at 8-9 moves in the future in under a second and selects the best outcome for itself.
+                            <br></br>
+                            <br></br>
+                            Created a second AI based on DeepMind&apos;s AlphaZero paper, consisting of multiple neural networks that teach the AI how to win through self play.
+                            <br></br>
+                            <br></br>
+                            Experimented with ReactJS and Firebase to create an online multiplayer version of the game.
                         </li>
                     </ul>
                 </Section>

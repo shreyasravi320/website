@@ -11,23 +11,21 @@ const LinkItem = ({ href, path, children }) => {
     const active = path === href
     const color = useColorModeValue("gray.100", "gray.900")
     return (
-        <NextLink href={href}>
-            <Link
-                style={{textDecoration: "none"}} px={4} py={2}
-                rounded="md"
-                bg={active ? color : undefined}
-                color={useColorModeValue("black", "white")}
-                _hover={{bgColor: useColorModeValue("gray.100", "gray.900")}}
-            >
-                {children}
-            </Link>
-        </NextLink>
+        <Link
+            as={NextLink}
+            href={href}
+            style={{textDecoration: "none"}} px={4} py={2}
+            rounded="md"
+            bg={active ? color : undefined}
+            color={useColorModeValue("black", "white")}
+            _hover={{bgColor: useColorModeValue("gray.100", "gray.900")}}
+        >
+            {children}
+        </Link>
     )
 }
 
-const NavBar = props => {
-    const { path } = props
-
+const NavBar = ({ path }) => {
     return (
         <Box
             position="fixed"
@@ -35,7 +33,6 @@ const NavBar = props => {
             // bg={"#00000000"}
             bg={useColorModeValue("white", "black")}
             zIndex={200}
-            {...props}
         >
             <Container
                 display="flex"
@@ -81,24 +78,39 @@ const NavBar = props => {
                             <MenuList
                                 bg={useColorModeValue("white", "black")}
                             >
-                                <NextLink href="/" passHref>
+                                <Link
+                                    as={NextLink}
+                                    href="/"
+                                >
                                     <MenuItem
-                                        as={Link}
                                         _hover={{bgColor: useColorModeValue("gray.100", "gray.900")}}
-                                        style={{textDecoration: "none"}}>Home</MenuItem>
-                                </NextLink>
-                                <NextLink href="/projects" passHref>
+                                        style={{textDecoration: "none"}}
+                                    >
+                                        Home
+                                    </MenuItem>
+                                </Link>
+                                <Link
+                                    as={NextLink}
+                                    href="/projects"
+                                >
                                     <MenuItem
-                                        as={Link}
                                         _hover={{bgColor: useColorModeValue("gray.100", "gray.900")}}
-                                        style={{textDecoration: "none"}}>Projects</MenuItem>
-                                </NextLink>
-                                <NextLink href="/resume" passHref>
+                                        style={{textDecoration: "none"}}
+                                    >
+                                        Projects
+                                    </MenuItem>
+                                </Link>
+                                <Link
+                                    as={NextLink}
+                                    href="/projects"
+                                >
                                     <MenuItem
-                                        as={Link}
                                         _hover={{bgColor: useColorModeValue("gray.100", "gray.900")}}
-                                        style={{textDecoration: "none"}}>Resume</MenuItem>
-                                </NextLink>
+                                        style={{textDecoration: "none"}}
+                                    >
+                                        Resume
+                                    </MenuItem>
+                                </Link>
                             </MenuList>
                         </Menu>
                     </Box>
