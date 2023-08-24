@@ -1,13 +1,10 @@
 import { Box, Container, Heading, useColorModeValue } from "@chakra-ui/react"
 import Section from "../components/section"
-import { useEffect } from 'react'
 import Layout from '../components/layouts/child'
+import theme from "../lib/theme"
 
-let mounted = false;
 const Page = () => {
-    useEffect(() => {
-        mounted = true;
-    }, []);
+    console.log(theme.sizes)
 
     return (
         <Layout>
@@ -22,13 +19,13 @@ const Page = () => {
                     </Box>
                 </Box>
 
-                <Section delay={(mounted ? 0 : 0)}>
+                <Section delay={0}>
                     <Box borderRadius="lg" bg={useColorModeValue("gray.100", "gray.900")} p={3} mt={6} mb={10} align="center">
                         Welcome to my website!
                     </Box>
                 </Section>
 
-                <Section delay={(mounted ? 0.3 : 0.3)}>
+                <Section delay={0.3}>
                     <Heading
                         as="h3"
                         variant="section-title"
