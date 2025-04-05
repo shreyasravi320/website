@@ -1,6 +1,7 @@
-import { Box, Container, Heading, useColorModeValue } from "@chakra-ui/react"
+import { Box, Container, Heading, useColorModeValue, Stack, Button } from "@chakra-ui/react"
 import Section from "../components/section"
 import Layout from '../components/layouts/child'
+import NextLink from "next/link"
 
 const Page = () => {
     return (
@@ -18,23 +19,60 @@ const Page = () => {
 
                 <Section delay={0}>
                     <Box borderRadius="lg" bg={useColorModeValue("gray.100", "gray.900")} p={3} mt={6} mb={10} align="center">
-                        Welcome to my website!
+                        I like math, music, art, and nature
                     </Box>
-                </Section>
-
-                <Section delay={0.3}>
-                    <Heading
-                        as="h3"
-                        variant="section-title"
-                        textDecorationColor={useColorModeValue("gray.200", "gray.800")}
-                    >
-                        About Me
-                    </Heading>
-                    I first started writing code in around the 8th grade, initially building little single-player console games. Since then, I would often find myself spending hours at a time thinking about how to interact with the computer to solve puzzles.
-                    Something about the problem-solving skills and logical reasoning drew me in, and once I started working on a task, I couldn&apos;t stop.
-                    <br></br>
-                    <br></br>
-                    Now, I am majoring in Computer Science at Tufts University. I&apos;ve collected a few of my most exciting projects I&apos;ve made, and I hope that readers share the same wonder and joy that I experienced when making these discoveries.
+                    <Box align="center">
+                        <NextLink href="/projects">
+                            <Button
+                                variant="outline"
+                                borderColor="#ff5e5a"
+                                bgGradient="linear(135deg, #ff7c20, #ff4093)"
+                                bgClip="text"
+                                color="transparent"
+                                _hover={{
+                                    bg: "linear-gradient(135deg, #ff7c20, #ff4093)",
+                                    color: useColorModeValue('white', 'black')
+                                }}
+                                colorScheme="transparent"
+                                mr={12}
+                            >
+                                My code projects
+                            </Button>
+                        </NextLink>
+                        <NextLink href="/resume">
+                            <Button
+                                variant="outline"
+                                borderColor="#03c8c2"
+                                bgGradient="linear(135deg, #03fc88, #0394fc)"
+                                bgClip="text"
+                                color="transparent"
+                                _hover={{
+                                    bg: "linear-gradient(135deg, #03fc88, #0394fc)",
+                                    color: useColorModeValue('white', 'black')
+                                }}
+                                colorScheme="transparent"
+                                mr={12}
+                            >
+                                My resume
+                            </Button>
+                        </NextLink>
+                        <NextLink href="/other">
+                            <Button
+                                variant="outline"
+                                borderColor="#da2aae"
+                                bgGradient="linear(225deg, #f52a67, #bf2af5)"
+                                bgClip="text"
+                                color="transparent"
+                                _hover={{
+                                    bg: "linear-gradient(135deg, #f52a67, #bf2af5)",
+                                    color: useColorModeValue('white', 'black')
+                                }}
+                                colorScheme="transparent"
+                            >
+                                My other projects
+                            </Button>
+                        </NextLink>
+                    </Box>
                 </Section>
             </Container>
         </Layout>

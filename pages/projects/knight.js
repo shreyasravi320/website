@@ -82,6 +82,12 @@ const KnightTour = () =>
 
                     <br></br>
                     <br></br>
+
+                    I had the idea for this solution in my freshman year of college, when my algorithms teacher used this problem as an example to teach the concepts of backtracking and exponential runtime. I thought about the problem as she was explaning it and asked her if we could do it in linear time with a divide-conquer approach, but she said she did not know of any solution in polynomial time.
+
+                <br></br>
+                <br></br>
+                Unfortunately, I was not the first person to discover this solution, but it was still fun to figure out the underlying math and logic.
                 </Section>
                 <Section delay={1.1}>
                     <Image src={KnightDiag} layout="responsive"/>

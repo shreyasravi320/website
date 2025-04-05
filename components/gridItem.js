@@ -21,7 +21,7 @@ export const GridItem = ({ href, isAnyFocused, setIsAnyFocused, children }) => {
         <Box
             w="100%"
             textAlign="center"
-            p="4%"
+            p="4"
             style={{
                 opacity: !isAnyFocused || focus ? '100%' : '15%',
                 borderRadius: 12,

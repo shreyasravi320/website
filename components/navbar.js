@@ -30,7 +30,6 @@ const NavBar = ({ path }) => {
         <Box
             position="fixed"
             as="nav" w="100%"
-            // bg={"#00000000"}
             bg={useColorModeValue("white", "black")}
             zIndex={200}
         >
@@ -59,6 +58,9 @@ const NavBar = ({ path }) => {
                     </LinkItem>
                     <LinkItem href="/resume" path={path}>
                         Resume
+                    </LinkItem>
+                    <LinkItem href="/other" path={path}>
+                        Other
                     </LinkItem>
                 </Stack>
 
@@ -109,6 +111,17 @@ const NavBar = ({ path }) => {
                                         style={{textDecoration: "none"}}
                                     >
                                         Resume
+                                    </MenuItem>
+                                </Link>
+                                <Link
+                                    as={NextLink}
+                                    href="/other"
+                                >
+                                    <MenuItem
+                                        _hover={{bgColor: useColorModeValue("gray.100", "gray.900")}}
+                                        style={{textDecoration: "none"}}
+                                    >
+                                        Other
                                     </MenuItem>
                                 </Link>
                             </MenuList>
