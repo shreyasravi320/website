@@ -4,13 +4,13 @@ import {
     Box,
     Button,
     useColorModeValue
-} from "@chakra-ui/react";
-import NextLink from "next/link";
-import Section from "../../components/section";
-import Layout from "../../components/layouts/child";
+} from "@chakra-ui/react"
+import NextLink from "next/link"
+import Section from "../../components/section"
+import Layout from "../../components/layouts/child"
 
-import PixcellSVG from "../../public/imgs/pixcell.svg";
-import PixcellScoreSVG from "../../public/imgs/pixcellScore.svg";
+import PixcellSVG from "../../public/imgs/pixcell.svg"
+import PixcellScoreSVG from "../../public/imgs/pixcellScore.svg"
 
 const PixCell = () => {
     return (
@@ -110,7 +110,7 @@ const PixCell = () => {
                 </Section>
             </Container>
         </Layout>
-    );
-};
+    )
+}
 
-export default PixCell;
+export default PixCell

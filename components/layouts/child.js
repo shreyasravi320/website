@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion } from "framer-motion"
 
 const variants = {
     hidden: { opacity: 0, x: 0, y: 20 },
@@ -13,14 +13,13 @@ const Layout = ({ children, title }) => {
             animate="enter"
             exit="exit"
             variants={variants}
-            transition={{ duration: 0.4, type: 'easeInOut' }}
-            style={{ position: 'relative' }}
+            transition={{ duration: 0.4, type: "easeInOut" }}
+            style={{ position: "relative" }}
         >
-                {title}
-                {children}
+            {title}
+            {children}
         </motion.article>
     )
 }
-
 
 export default Layout

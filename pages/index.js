@@ -1,13 +1,20 @@
-import { Box, Container, Heading, useColorModeValue, Stack, Button } from "@chakra-ui/react"
+import {
+    Box,
+    Container,
+    Heading,
+    useColorModeValue,
+    Stack,
+    Button
+} from "@chakra-ui/react"
 import Section from "../components/section"
-import Layout from '../components/layouts/child'
+import Layout from "../components/layouts/child"
 import NextLink from "next/link"
 
 const Page = () => {
     return (
         <Layout>
             <Container maxW="container.lg">
-                <Box display={{md:"flex"}} mt={6} align="left">
+                <Box display={{ md: "flex" }} mt={6} align="left">
                     <Box flexGrow={1}>
                         <Heading variant="page-title">
                             <div className="animated-gradient-text">
@@ -18,10 +25,23 @@ const Page = () => {
                 </Box>
 
                 <Section delay={0}>
-                    <Box borderRadius="lg" bg={useColorModeValue("gray.100", "gray.900")} p={3} mt={6} mb={10} align="center">
+                    <Box
+                        borderRadius="lg"
+                        bg={useColorModeValue("gray.100", "gray.900")}
+                        p={3}
+                        mt={6}
+                        mb={10}
+                        align="center"
+                    >
                         I like math, music, art, and nature
                     </Box>
-                    <Box align="center">
+                    <Box
+                        display="flex"
+                        flexDirection={{ base: "column", md: "row" }}
+                        alignItems="center"
+                        justifyContent="center"
+                        gap={{ base: 4, md: 0 }} // Adds gap between buttons in column mode
+                    >
                         <NextLink href="/projects">
                             <Button
                                 variant="outline"
@@ -31,10 +51,11 @@ const Page = () => {
                                 color="transparent"
                                 _hover={{
                                     bg: "linear-gradient(135deg, #ff7c20, #ff4093)",
-                                    color: useColorModeValue('white', 'black')
+                                    color: useColorModeValue("white", "black")
                                 }}
                                 colorScheme="transparent"
-                                mr={12}
+                                mb={{ base: 4, md: 0 }}
+                                mr={{ base: 0, md: 12 }}
                             >
                                 My code projects
                             </Button>
@@ -48,10 +69,11 @@ const Page = () => {
                                 color="transparent"
                                 _hover={{
                                     bg: "linear-gradient(135deg, #03fc88, #0394fc)",
-                                    color: useColorModeValue('white', 'black')
+                                    color: useColorModeValue("white", "black")
                                 }}
                                 colorScheme="transparent"
-                                mr={12}
+                                mb={{ base: 4, md: 0 }}
+                                mr={{ base: 0, md: 12 }}
                             >
                                 My resume
                             </Button>
@@ -65,7 +87,7 @@ const Page = () => {
                                 color="transparent"
                                 _hover={{
                                     bg: "linear-gradient(135deg, #f52a67, #bf2af5)",
-                                    color: useColorModeValue('white', 'black')
+                                    color: useColorModeValue("white", "black")
                                 }}
                                 colorScheme="transparent"
                             >
