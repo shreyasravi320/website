@@ -122,7 +122,7 @@ const NavBar = ({ path }) => {
                                         Projects
                                     </MenuItem>
                                 </Link>
-                                <Link as={NextLink} href="/projects">
+                                <Link as={NextLink} href="/resume">
                                     <MenuItem
                                         _hover={{
                                             bgColor: useColorModeValue(
